@@ -22,7 +22,7 @@ public class Unit_test1 {
 		Pokemon p7 = new Pokemon(60,Water,a1);	
 		
 		@Test
-		public void test() {
+		public void test3() {
 			/*Maximum bench size is 5, adding p7 should return an error (or False)
 			  */
 			T1.play(p1);

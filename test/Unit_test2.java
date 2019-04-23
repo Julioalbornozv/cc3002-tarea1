@@ -22,7 +22,7 @@ public class Unit_test1 {
 	Pokemon p3 = new Pokemon(60,Psi,a3);    //P2 active
 	
 	@Test
-	public void test() {
+	public void test2() {
 		/*p2 resists p1, p1 is weak against p2, p3 replaces p2
 		  */
 		T1.play(p1);
