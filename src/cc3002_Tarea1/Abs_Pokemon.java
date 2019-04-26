@@ -26,10 +26,6 @@ public abstract class Abs_Pokemon implements Pokemon{
 			}	
 		}
 	
-	public void deactivate(Trainer owner) {
-		owner.setActive();
-		}
-	
 	public void associate(Energy e) {
 		power.add(e.getKey());
 		}

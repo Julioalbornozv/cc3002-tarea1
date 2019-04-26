@@ -7,9 +7,15 @@ public abstract class AbsTrainer implements ITrainer{
 	private Queue<Pokemon> reserve = new LinkedList<>();
 	private Card[] hand;
 	
-	public AbsTrainer() {}		
+	// Empty Trainer
+	public AbsTrainer() {}	
+	
+	// Trainer generated with an active pokemon
+	public AbsTrainer(Pokemon starter) { 
+		this.active = starter;
+		}
 
-	public void setActive() {
+	private void setActive() { 
 		if (reserve.peek() == null) {	// No more bench pokemons
 			return;	
 			}
@@ -23,12 +29,16 @@ public abstract class AbsTrainer implements ITrainer{
 	public void equip(Energy e) {
 		active.associate(e);
 		}
+	
+	public void checkActive() {
+		if (active.getHP() <= 0) {
+			setActive();
+			}
+		}
 	public void select(Attack att, Trainer opponent) {
 		Pokemon enemy = opponent.getActive();
 		this.active.attack(att, enemy);
-		if (enemy.getHP() <= 0) {
-			opponent.setActive();
-			}
+		opponent.checkActive();
 		
 		}
 	public Pokemon getActive() {

@@ -12,8 +12,7 @@ import cc3002_Tarea1.Trainer;
 
 public class Bench_Test {
 	private Pokemon_Fight p1,p2,p3,p4,p5,p6,p7,p8,p9;
-	private Trainer t1 = new Trainer();
-	private Trainer t2 = new Trainer();
+	private Trainer t1, t2;
 	private Attack nuke;
 	
 	@Before
@@ -31,14 +30,13 @@ public class Bench_Test {
 		p7 = new Pokemon_Fight(0,100, none);
 		p8 = new Pokemon_Fight(0,100, none);
 		p9 = new Pokemon_Fight(0,100, none);
+		
+		t1 = new Trainer(p1);
+		t2 = new Trainer(p2);
 		}
 
 	@Test
 	public void test() {
-		t2.play(p1);
-		t2.setActive();
-		t1.play(p2);	// 0/5
-		t1.setActive();
 		
 		t1.play(p3);	// 1/5
 		t1.play(p4);	// 2/5

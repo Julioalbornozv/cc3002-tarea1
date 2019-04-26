@@ -1,11 +1,10 @@
 package cc3002_Tarea1;
 
-public interface Pokemon {  //TODO: Set up permissions correctly
+public interface Pokemon {  
 	public int getHP();
 	public Ability[] getSkillset();
 	public void attack(Attack att, Pokemon enemy);
 	public void fight(Attack att, Pokemon enemy);
-	public void deactivate(Trainer owner);
 	public void associate(Energy energy);
 	public void normalDmg(int dmg);
 	public void weaknessDmg(int dmg);

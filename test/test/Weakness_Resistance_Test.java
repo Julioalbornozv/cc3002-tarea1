@@ -18,8 +18,7 @@ import cc3002_Tarea1.Trainer;
 
 public class Weakness_Resistance_Test {
 	private Pokemon pL,pW,pF,pP,pFg,pT,pP2;
-	private Trainer t1 = new Trainer();
-	private Trainer t2 = new Trainer();
+	private Trainer t1, t2;
 	private Attack standard;
 	
 	@Before
@@ -39,10 +38,8 @@ public class Weakness_Resistance_Test {
 
 	@Test
 	public void Leaf_vs_Water_test() {
-		t1.play(pL);
-		t1.setActive();
-		t2.play(pW);
-		t2.setActive();
+		t1 = new Trainer(pL);
+		t2 = new Trainer(pW);
 		
 		t1.select(standard, t2);	// Weak
 		t2.select(standard, t1);	// Resist
@@ -53,10 +50,8 @@ public class Weakness_Resistance_Test {
 	
 	@Test
 	public void Leaf_vs_Fire_test() {
-		t1.play(pL);
-		t1.setActive();
-		t2.play(pF);
-		t2.setActive();
+		t1 = new Trainer(pL);
+		t2 = new Trainer(pF);
 		
 		t2.select(standard, t1);	// Weak
 		
@@ -65,10 +60,8 @@ public class Weakness_Resistance_Test {
 	
 	@Test
 	public void Fire_vs_Water_test() {
-		t1.play(pF);
-		t1.setActive();
-		t2.play(pW);
-		t2.setActive();
+		t1 = new Trainer(pF);
+		t2 = new Trainer(pW);
 		
 		t2.select(standard, t1);	// Weak
 		
@@ -78,10 +71,8 @@ public class Weakness_Resistance_Test {
 		
 	@Test
 	public void Water_vs_Thunder_test() {
-		t1.play(pW);
-		t1.setActive();
-		t2.play(pT);
-		t2.setActive();
+		t1 = new Trainer(pW);
+		t2 = new Trainer(pT);
 		
 		t2.select(standard, t1);	// Weak
 		
@@ -90,10 +81,8 @@ public class Weakness_Resistance_Test {
 	
 	@Test
 	public void Water_vs_Fight_test() {
-		t1.play(pW);
-		t1.setActive();
-		t2.play(pFg);
-		t2.setActive();
+		t1 = new Trainer(pW);
+		t2 = new Trainer(pFg);
 		
 		t2.select(standard, t1);	// Resist
 		
@@ -102,10 +91,8 @@ public class Weakness_Resistance_Test {
 
 	@Test
 	public void Fight_vs_Leaf_test() {
-		t1.play(pFg);
-		t1.setActive();
-		t2.play(pL);
-		t2.setActive();
+		t1 = new Trainer(pFg);
+		t2 = new Trainer(pL);
 		
 		t2.select(standard, t1);	// Weak
 		
@@ -114,10 +101,8 @@ public class Weakness_Resistance_Test {
 	
 	@Test
 	public void Fight_vs_Psi_test() {
-		t1.play(pFg);
-		t1.setActive();
-		t2.play(pP);
-		t2.setActive();
+		t1 = new Trainer(pFg);
+		t2 = new Trainer(pP);
 		
 		t1.select(standard, t2);	// Resist
 		t2.select(standard, t1);	// Weak
@@ -128,10 +113,8 @@ public class Weakness_Resistance_Test {
 	
 	@Test
 	public void Fight_vs_Thunder_test() {
-		t1.play(pFg);
-		t1.setActive();
-		t2.play(pT);
-		t2.setActive();
+		t1 = new Trainer(pFg);
+		t2 = new Trainer(pT);
 		
 		t1.select(standard, t2);	// Weak
 		
@@ -140,10 +123,8 @@ public class Weakness_Resistance_Test {
 	
 	@Test
 	public void Psi_vs_Psi_test() {
-		t1.play(pP);
-		t1.setActive();
-		t2.play(pP2);
-		t2.setActive();
+		t1 = new Trainer(pP);
+		t2 = new Trainer(pP2);
 		
 		t1.select(standard, t2);	// Weak
 		

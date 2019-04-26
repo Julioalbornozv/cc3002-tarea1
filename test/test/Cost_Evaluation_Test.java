@@ -11,8 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class Cost_Evaluation_Test {
-	private Trainer t1 = new Trainer();
-	private Trainer t2 = new Trainer();
+	private Trainer t1, t2;
 	private Pokemon_Leaf p1, p2;
 	private Attack a1,a2,a3;
 	private Energy_Leaf e1, e2;
@@ -36,17 +35,13 @@ public class Cost_Evaluation_Test {
 		
 		p1 = new Pokemon_Leaf(0,100,skillset);
 		p2 = new Pokemon_Leaf(1,100,skillset);
+		
+		t1 = new Trainer(p1);
+		t2 = new Trainer(p2);
 		}
 
 	@Test
 	public void test() {
-		t1.play(p1);
-		t1.setActive();
-		
-		t2.play(p2);
-		t2.setActive();
-		
-		assertTrue(t1.getActive() != null);
 		
 		t1.equip(e1);
 		
