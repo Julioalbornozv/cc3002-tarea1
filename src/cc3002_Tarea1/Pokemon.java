@@ -1,18 +1,76 @@
 package cc3002_Tarea1;
 
+/**
+ * Common interface for Pokemon entities. Pokemons contain an id
+ * , health points, a set of maximum 4 skills and a number of energy
+ * cards associated with them (Managed by a Ledger object).
+ * 
+ * @author Julio Albornozz Valencia
+ */
 public interface Pokemon {  
+	/**
+	 * Getter for poekemon's hp
+	 * @return Pokemon health
+	 */
 	public int getHP();
+	
+	/**
+	 * Getter for skills associated with the pokemon
+	 * @return Set of ablilities
+	 */
 	public Ability[] getSkillset();
+	
+	/**
+	 * Attacks specified pokemon only if the given attack cost is
+	 * lower than the number of associated energies.
+	 * @param att Attack to be used
+	 * @param enemy Active pokemon of the opponent
+	 */
 	public void attack(Attack att, Pokemon enemy);
-	public void fight(Attack att, Pokemon enemy);
+	
+	
+	//public void fight(Attack att, Pokemon enemy);
+	
+	/**
+	 * Associates the given energy with this pokemon, by incrementing
+	 * the energy card counters stored by the Ledger.
+	 * @param energy Energy being equipped
+	 */
 	public void associate(Energy energy);
-	public void normalDmg(int dmg);
-	public void weaknessDmg(int dmg);
-	public void resistDmg(int dmg);
-	public void recieveFireDmg(Attack chosen);
-	public void recieveWaterDmg(Attack chosen);
-	public void recieveLeafDmg(Attack chosen);
-	public void recieveFightDmg(Attack chosen);
-	public void recieveThunderDmg(Attack chosen);
-	public void recievePsiDmg(Attack chosen);
+	
+	/**
+	 * Receives fire damage from an opponent
+	 * @param att Enemy attack
+	 */
+	public void recieveFireDmg(Attack att);
+	
+	/**
+	 * Receives water damage from an opponent
+	 * @param att Enemy attack
+	 */
+	public void recieveWaterDmg(Attack att);
+	
+	/**
+	 * Receives leaf damage from an opponent
+	 * @param att Enemy attack
+	 */
+	public void recieveLeafDmg(Attack att);
+	
+	/**
+	 * Receives fight damage from an opponent
+	 * @param att Enemy attack
+	 */
+	public void recieveFightDmg(Attack att);
+	
+	/**
+	 * Receives thunder damage from an opponent
+	 * @param att Enemy attack
+	 */
+	public void recieveThunderDmg(Attack att);
+	
+	/**
+	 * Receives psychic damage from an opponent
+	 * @param att Enemy attack
+	 */
+	public void recievePsiDmg(Attack att);
 }

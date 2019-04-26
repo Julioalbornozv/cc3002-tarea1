@@ -1,10 +1,22 @@
 package cc3002_Tarea1;
 
+/**
+ * Class for psychic type pokemons
+ * 
+ * @author Julio Albornoz Valencia
+ */
 public class Pokemon_Psi extends Abs_Pokemon{
+	/**
+	 * Creates new psychic type pokemon
+	 * @param id Pokemon id
+	 * @param hp Pokemon hp
+	 * @param skills Pokemon skills
+	 */
 	public Pokemon_Psi(int id, int hp, Ability[] skills) {
 		super(id,hp,skills);
 		}
 	
+	@Override
 	public void fight(Attack att, Pokemon enemy) {
 		enemy.recievePsiDmg(att);
 		}
