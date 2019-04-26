@@ -44,8 +44,8 @@ public class Weakness_Resistance_Test {
 		t2.play(pW);
 		t2.setActive();
 		
-		t1.select(standard, t2.getActive());	// Weak
-		t2.select(standard, t1.getActive());	// Resist
+		t1.select(standard, t2);	// Weak
+		t2.select(standard, t1);	// Resist
 		
 		assertEquals(pW.getHP(), 20);
 		assertEquals(pL.getHP(), 90);
@@ -58,7 +58,7 @@ public class Weakness_Resistance_Test {
 		t2.play(pF);
 		t2.setActive();
 		
-		t2.select(standard, t1.getActive());	// Weak
+		t2.select(standard, t1);	// Weak
 		
 		assertEquals(pL.getHP(), 20);
 		}
@@ -70,7 +70,7 @@ public class Weakness_Resistance_Test {
 		t2.play(pW);
 		t2.setActive();
 		
-		t2.select(standard, t1.getActive());	// Weak
+		t2.select(standard, t1);	// Weak
 		
 		assertEquals(pF.getHP(), 20);
 		}
@@ -83,7 +83,7 @@ public class Weakness_Resistance_Test {
 		t2.play(pT);
 		t2.setActive();
 		
-		t2.select(standard, t1.getActive());	// Weak
+		t2.select(standard, t1);	// Weak
 		
 		assertEquals(pW.getHP(), 20);
 		}
@@ -95,7 +95,7 @@ public class Weakness_Resistance_Test {
 		t2.play(pFg);
 		t2.setActive();
 		
-		t2.select(standard, t1.getActive());	// Resist
+		t2.select(standard, t1);	// Resist
 		
 		assertEquals(pW.getHP(), 90);
 		}
@@ -107,7 +107,7 @@ public class Weakness_Resistance_Test {
 		t2.play(pL);
 		t2.setActive();
 		
-		t2.select(standard, t1.getActive());	// Weak
+		t2.select(standard, t1);	// Weak
 		
 		assertEquals(pFg.getHP(), 20);
 		}
@@ -119,8 +119,8 @@ public class Weakness_Resistance_Test {
 		t2.play(pP);
 		t2.setActive();
 		
-		t1.select(standard, t2.getActive());	// Resist
-		t2.select(standard, t1.getActive());	// Weak
+		t1.select(standard, t2);	// Resist
+		t2.select(standard, t1);	// Weak
 		
 		assertEquals(pFg.getHP(), 20);
 		assertEquals(pP.getHP(), 90);
@@ -133,7 +133,7 @@ public class Weakness_Resistance_Test {
 		t2.play(pT);
 		t2.setActive();
 		
-		t1.select(standard, t2.getActive());	// Weak
+		t1.select(standard, t2);	// Weak
 		
 		assertEquals(pT.getHP(), 20);
 		}
@@ -145,7 +145,7 @@ public class Weakness_Resistance_Test {
 		t2.play(pP2);
 		t2.setActive();
 		
-		t1.select(standard, t2.getActive());	// Weak
+		t1.select(standard, t2);	// Weak
 		
 		assertEquals(pP2.getHP(), 20);
 		}

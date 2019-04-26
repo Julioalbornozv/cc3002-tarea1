@@ -12,6 +12,7 @@ import org.junit.Test;
 
 public class Cost_Evaluation_Test {
 	private Trainer t1 = new Trainer();
+	private Trainer t2 = new Trainer();
 	private Pokemon_Leaf p1, p2;
 	private Attack a1,a2,a3;
 	private Energy_Leaf e1, e2;
@@ -41,24 +42,28 @@ public class Cost_Evaluation_Test {
 	public void test() {
 		t1.play(p1);
 		t1.setActive();
+		
+		t2.play(p2);
+		t2.setActive();
+		
 		assertTrue(t1.getActive() != null);
 		
 		t1.equip(e1);
 		
-		t1.select(a1,p2); // True
-		t1.select(a2,p2); // False
-		t1.select(a3,p2); // False
+		t1.select(a1,t2); // True
+		t1.select(a2,t2); // False
+		t1.select(a3,t2); // False
 		
 		assertEquals(p2.getHP(), 80);
 		//---------------------------
 		t1.equip(e3);
 		
-		t1.select(a2,p2); // False
-		t1.select(a3,p2); // True
+		t1.select(a2,t2); // False
+		t1.select(a3,t2); // True
 		assertEquals(p2.getHP(), 60);
 		//--------------------------
 		t1.equip(e2);
-		t1.select(a2,p2); // True
+		t1.select(a2,t2); // True
 		assertEquals(p2.getHP(), 40);
 		
 		}

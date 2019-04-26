@@ -23,8 +23,13 @@ public abstract class AbsTrainer implements ITrainer{
 	public void equip(Energy e) {
 		active.associate(e);
 		}
-	public void select(Attack att, Pokemon enemy) {
+	public void select(Attack att, Trainer opponent) {
+		Pokemon enemy = opponent.getActive();
 		this.active.attack(att, enemy);
+		if (enemy.getHP() <= 0) {
+			opponent.setActive();
+			}
+		
 		}
 	public Pokemon getActive() {
 		return this.active;

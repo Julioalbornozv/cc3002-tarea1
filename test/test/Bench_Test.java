@@ -47,15 +47,15 @@ public class Bench_Test {
 		t1.play(p7);	// Full rooster
 		t1.play(p8);	// Overflow, should not do anything
 		
-		t2.select(nuke,t1.getActive());
+		t2.select(nuke,t1);
 		assertEquals(p3, t1.getActive()); // p3 should take place of p2
 		t1.play(p9);
 		
-		t2.select(nuke,t1.getActive()); // p3 out
-		t2.select(nuke,t1.getActive()); // p4 out
-		t2.select(nuke,t1.getActive()); // p5 out
-		t2.select(nuke,t1.getActive()); // p6 out
-		t2.select(nuke,t1.getActive()); // p7 out
+		t2.select(nuke,t1); // p3 out
+		t2.select(nuke,t1); // p4 out
+		t2.select(nuke,t1); // p5 out
+		t2.select(nuke,t1); // p6 out
+		t2.select(nuke,t1); // p7 out
 		
 		assertEquals(p9, t1.getActive()); // p9 active instead of p8
 		}
