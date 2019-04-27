@@ -11,4 +11,5 @@ public interface Card {
 	 * @return Name of card
 	 */
 	public String getName();
+	public void beingPlayedBy(ITrainer player);
 	}

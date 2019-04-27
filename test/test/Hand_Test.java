@@ -35,7 +35,7 @@ public class Hand_Test {
 	@Test
 	public void Hand_test() {
 		t1.play(p2);
-		t1.equip(e1);
+		t1.play(e1);
 		
 		assertEquals(p1, t1.getActive());
 		assertEquals(-1, t1.getHand().indexOf(p2));

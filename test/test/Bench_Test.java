@@ -46,6 +46,7 @@ public class Bench_Test {
 		
 		t2.select(nuke,t1);
 		assertEquals(p3, t1.getActive()); // p3 should take place of p2
+		
 		t1.play(p9);
 		
 		t2.select(nuke,t1); // p3 out

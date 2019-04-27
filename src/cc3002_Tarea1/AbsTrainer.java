@@ -50,23 +50,20 @@ public abstract class AbsTrainer implements ITrainer{
 		}
 	
 	@Override
-	public void play(Pokemon p) {
+	public void addToBench(Pokemon p) {
 		if (reserve.isEmpty() || reserve.size() < 5) {	//Full bench
-			if (hand.indexOf(p) != -1) { //Removes from hand
-				hand.remove(p);
-				}
-			this.reserve.add(p);	
+			this.reserve.add(p);
 			}
 		}
 	
-	@Override
-	public void equip(Energy e) {
-		if (hand.indexOf(e) != -1) { //Removes from hand
-			hand.remove(e);
+	public void play(Card card) {
+		if (hand.indexOf(card) != -1) { //Removes from hand
+			hand.remove(card);
 			}
-		active.associate(e);
+		card.beingPlayedBy(this);
 		}
 	
+
 	@Override
 	public void checkActive() {
 		if (active.getHP() <= 0) {

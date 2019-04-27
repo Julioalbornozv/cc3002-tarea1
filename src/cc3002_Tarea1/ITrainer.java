@@ -14,11 +14,11 @@ public interface ITrainer {
 	
 	
 	/**
-	 * Places a specific pokemon on the reserve (Usually from the hand)
+	 * Plays a card
 	 * 
-	 * @param pk Pokemon to be placed
+	 * @param c Card to be played
 	 */
-	public void play(Pokemon pk);
+	public void play(Card x);
 	
 	/**
 	 * Uses an attack against the active pokemon of the enemy player
@@ -28,11 +28,6 @@ public interface ITrainer {
 	 */
 	public void select(Attack a, Trainer opp);
 	
-	/**
-	 * Equips an energy card to the active pokemon
-	 * @param e
-	 */
-	public void equip(Energy e);
 	
 	/**
 	 * Checks if the active pokemon has been defeated, invoked
@@ -54,4 +49,10 @@ public interface ITrainer {
 	 * @return Active Pokemon
 	 */
 	public List<Card> getHand();
+
+	/**
+	 * Adds pokemon to the bench
+	 * @param p
+	 */
+	void addToBench(Pokemon p);
 	}

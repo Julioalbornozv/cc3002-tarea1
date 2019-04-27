@@ -42,7 +42,7 @@ public class Cost_Evaluation_Test {
 	@Test
 	public void test() {
 		
-		t1.equip(e1);
+		t1.play(e1);
 		
 		t1.select(a1,t2); // True
 		t1.select(a2,t2); // False
@@ -50,13 +50,13 @@ public class Cost_Evaluation_Test {
 		
 		assertEquals(80, p2.getHP());
 		//---------------------------
-		t1.equip(e3);
+		t1.play(e3);
 		
 		t1.select(a2,t2); // False
 		t1.select(a3,t2); // True
 		assertEquals(60, p2.getHP());
 		//--------------------------
-		t1.equip(e2);
+		t1.play(e2);
 		t1.select(a2,t2); // True
 		assertEquals(40, p2.getHP());
 		

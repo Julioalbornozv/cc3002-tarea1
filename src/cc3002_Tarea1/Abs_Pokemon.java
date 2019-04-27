@@ -66,6 +66,11 @@ public abstract class Abs_Pokemon implements Pokemon{
 	protected void fight (Attack skill, Pokemon enemy) {}
 	
 	@Override
+	public void beingPlayedBy(ITrainer player){
+		player.addToBench(this);
+		}
+	
+	@Override
 	public void attack(Attack skill, Pokemon enemy) {
 		if (power.evalCost(skill)) {
 			this.fight(skill, enemy);

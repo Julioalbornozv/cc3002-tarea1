@@ -11,6 +11,11 @@ public abstract class Abs_Energy implements Energy{
 		return name;	
 		}
 
+	@Override 
+	public void beingPlayedBy(ITrainer player) {
+		Pokemon active = player.getActive();
+		active.associate(this);
+		}
 	
 	/**
 	 * Checks if this Energy Card is equal to another
