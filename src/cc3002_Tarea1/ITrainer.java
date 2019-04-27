@@ -2,15 +2,16 @@ package cc3002_Tarea1;
 
 import java.util.List;
 
+/**
+ * Common Interface for trainer objects. Trainers have
+ * a hand of available cards, an active pokemon which
+ * can receive commands and a reserve of a maximum of
+ * 5 pokemons which replace the active pokemon when defeated.
+ * 
+ * @author Julio Albornoz Valencia
+ */
 public interface ITrainer {
-	/**
-	 * Common Interface for trainer objects. Trainers have
-	 * a hand of available cards, an active pokemon which
-	 * can receive commands and a reserve of a maximum of
-	 * 5 pokemons which replace the active pokemon when defeated.
-	 * 
-	 * @author Julio Albornoz Valencia
-	 */
+	
 	
 	/**
 	 * Places a specific pokemon on the reserve (Usually from the hand)

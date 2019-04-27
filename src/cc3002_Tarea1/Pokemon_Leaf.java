@@ -13,7 +13,7 @@ public class Pokemon_Leaf extends Abs_Pokemon{
 	 * @param hp Pokemon hp
 	 * @param skills Pokemon skills
 	 */
-	public Pokemon_Leaf(int id, String name, int hp, Ability[] skills) {
+	public Pokemon_Leaf(int id, String name, int hp, Ability ... skills) {
 		super(id,name,hp,skills);
 		}
 	

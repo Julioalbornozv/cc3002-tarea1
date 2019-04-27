@@ -1,7 +1,7 @@
 package cc3002_Tarea1;
 
 /**
- * Class for fire type pokemons
+ * Class for the fire type pokemons
  * 
  * @author Julio Albornoz Valencia
  */
@@ -13,7 +13,7 @@ public class Pokemon_Fire extends Abs_Pokemon{
 	 * @param hp Pokemon hp
 	 * @param skills Pokemon skills
 	 */
-	public Pokemon_Fire(int id, String name, int hp, Ability[] skills) {
+	public Pokemon_Fire(int id, String name, int hp, Ability ... skills) {
 		super(id,name,hp,skills);
 		}
 	

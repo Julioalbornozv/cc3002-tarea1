@@ -1,5 +1,8 @@
 package cc3002_Tarea1;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Base class for all Pokemons, contain implementations for getters
  * methods defined by IPokemon and includes methods required
@@ -7,11 +10,11 @@ package cc3002_Tarea1;
  * 
  * @author Julio Albornoz Valencia
  */
-public abstract class Abs_Pokemon implements Pokemon, Card{
+public abstract class Abs_Pokemon implements Pokemon{
 	private int id;
 	private int hp;
 	private String name;
-	private Ability[] skillset = new Ability[4];
+	private List<Ability> skillset = new LinkedList<>();
 	private Ledger power = new Ledger();
 	
 	/**
@@ -22,11 +25,17 @@ public abstract class Abs_Pokemon implements Pokemon, Card{
 	 * @param hp Pokemon hp
 	 * @param skills Pokemon skills
 	 */
-	protected Abs_Pokemon(int id,String name, int hp, Ability[] skills) {
+
+	protected Abs_Pokemon(int id,String name, int hp, Ability ... skills) {
 		this.id = id;
 		this.name = name;
 		this.hp = hp;
-		this.skillset = skills;
+		for (Ability sk : skills) {
+			if (skillset.size() < 4) { // 4 skill restriction
+				skillset.add(sk);
+				}
+			}
+		;
 		}	
 	
 	@Override
@@ -39,7 +48,7 @@ public abstract class Abs_Pokemon implements Pokemon, Card{
 		return id;
 		}	
 	@Override
-	public Ability[] getSkillset(){
+	public List<Ability> getSkillset(){
 		return skillset;
 		}
 	

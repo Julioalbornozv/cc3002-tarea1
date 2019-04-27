@@ -1,5 +1,7 @@
 package cc3002_Tarea1;
 
+import java.util.List;
+
 /**
  * Common interface for Pokemon entities. Pokemons contain an id
  * , health points, a set of maximum 4 skills and a number of energy
@@ -7,7 +9,7 @@ package cc3002_Tarea1;
  * 
  * @author Julio Albornozz Valencia
  */
-public interface Pokemon {  
+public interface Pokemon extends Card{  
 	/**
 	 * Getter for poekemon's hp
 	 * @return Pokemon health
@@ -23,7 +25,7 @@ public interface Pokemon {
 	 * Getter for skills associated with the pokemon
 	 * @return Set of ablilities
 	 */
-	public Ability[] getSkillset();
+	public List<Ability> getSkillset();
 	
 	/**
 	 * Attacks specified pokemon only if the given attack cost is

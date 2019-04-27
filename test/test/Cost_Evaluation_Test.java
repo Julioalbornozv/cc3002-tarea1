@@ -32,10 +32,8 @@ public class Cost_Evaluation_Test {
 		a2 = new Attack("2W","", 20, l2);
 		a3 = new Attack("1W-1E","", 20, l3);
 		
-		Attack[] skillset = {a1,a2,a3};
-		
-		p1 = new Pokemon_Leaf(0,"",100,skillset);
-		p2 = new Pokemon_Leaf(1,"",100,skillset);
+		p1 = new Pokemon_Leaf(0,"",100,a1,a2,a3);
+		p2 = new Pokemon_Leaf(1,"",100,a1,a2,a3);
 		
 		t1 = new Trainer(p1);
 		t2 = new Trainer(p2);

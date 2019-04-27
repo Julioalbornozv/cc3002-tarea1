@@ -1,12 +1,20 @@
 package cc3002_Tarea1;
 
+/**
+ * Class for Fire Energy cards
+ * 
+ * @author Julio Albornoz Valencia
+ */
 public class Energy_Fire extends Abs_Energy{
 	
 	public Energy_Fire(String name) {
 		super(name);
-		this.idE = 1;
 		}
 	
+	@Override
+	public int getKey() {
+		return 1;
+		}
 	/**
 	 * Checks if this Fire Energy is equal to another
 	 * @param obj Object being compared

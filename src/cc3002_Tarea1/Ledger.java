@@ -32,7 +32,7 @@ public class Ledger {
 	/**
 	 * Increments an energy counter if it exists, if not creates
 	 * a counter based on the new energy type.
-	 * @param k Key used by energy //TODO:: Use energy as keys
+	 * @param k Key used to identify an energy type
 	 */
 	public void add(int k) {
 		if (!count.containsKey(k)) {

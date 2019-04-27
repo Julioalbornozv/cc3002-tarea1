@@ -1,10 +1,19 @@
 package cc3002_Tarea1;
 
+/**
+ * Class for Fight Energy cards
+ * 
+ * @author Julio Albornoz Valencia
+ */
 public class Energy_Fight extends Abs_Energy{
 	
 	public Energy_Fight(String name) {
 		super(name);
-		this.idE = 0;	
+		}
+	
+	@Override
+	public int getKey() {
+		return 0;
 		}
 	/**
 	 * Checks if this Fight Energy is equal to another

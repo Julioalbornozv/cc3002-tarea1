@@ -1,8 +1,7 @@
 package cc3002_Tarea1;
 
-public abstract class Abs_Energy implements Energy, Card{
+public abstract class Abs_Energy implements Energy{
 	private String name;
-	protected int idE;
 	public Abs_Energy(String name) {
 		this.name = name;
 		}
@@ -11,11 +10,7 @@ public abstract class Abs_Energy implements Energy, Card{
 	public String getName() {
 		return name;	
 		}
-	
-	@Override
-	public int getKey() {
-		return idE;
-		}
+
 	
 	/**
 	 * Checks if this Energy Card is equal to another
@@ -24,7 +19,6 @@ public abstract class Abs_Energy implements Energy, Card{
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		return obj instanceof Energy 
-				&& ((Energy)obj).getKey() == this.idE;
+		return obj instanceof Energy;
 		}
 	}

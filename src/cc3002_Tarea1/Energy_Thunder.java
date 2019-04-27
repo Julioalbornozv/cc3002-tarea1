@@ -1,12 +1,20 @@
 package cc3002_Tarea1;
 
+/**
+ * Class for Thunder Energy cards
+ * 
+ * @author Julio Albornoz Valencia
+ */
 public class Energy_Thunder extends Abs_Energy{
 	
 	public Energy_Thunder(String name) {
 		super(name);
-		this.idE = 4;
 		}
 	
+	@Override
+	public int getKey() {
+		return 4;
+		}
 	/**
 	 * Checks if this Thunder Energy is equal to another
 	 * @param obj Object being compared

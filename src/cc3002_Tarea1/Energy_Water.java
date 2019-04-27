@@ -1,10 +1,19 @@
 package cc3002_Tarea1;
 
+/**
+ * Class for Water Energy cards
+ * 
+ * @author Julio Albornoz Valencia
+ */
 public class Energy_Water extends Abs_Energy{
 	
 	public Energy_Water(String name) {
 		super(name);
-		this.idE = 5;
+		}
+	
+	@Override
+	public int getKey() {
+		return 5;
 		}
 	
 	/**

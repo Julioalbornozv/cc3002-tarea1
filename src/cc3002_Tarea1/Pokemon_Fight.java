@@ -13,7 +13,7 @@ public class Pokemon_Fight extends Abs_Pokemon{
 	 * @param hp Pokemon hp
 	 * @param skills Pokemon skills
 	 */
-	public Pokemon_Fight(int id, String name, int hp, Ability[] skills) {
+	public Pokemon_Fight(int id, String name, int hp, Ability ... skills) {
 		super(id,name,hp,skills);
 		}
 	

@@ -25,15 +25,14 @@ public class Weakness_Resistance_Test {
 	public void setUp() throws Exception {
 		Ledger dud = new Ledger();
 		standard = new Attack("Standard","", 40, dud);
-		Attack[] std = {standard};
 		
-		pL = new Pokemon_Leaf(0,"",100,std);
-		pW = new Pokemon_Water(0,"",100,std);
-		pF = new Pokemon_Fire(0,"",100,std);
-		pP = new Pokemon_Psi(0,"",100,std);
-		pFg = new Pokemon_Fight(0,"",100,std);
-		pT = new Pokemon_Thunder(0,"",100,std);
-		pP2 = new Pokemon_Psi(0,"",100,std);
+		pL = new Pokemon_Leaf(0,"",100,standard);
+		pW = new Pokemon_Water(0,"",100,standard);
+		pF = new Pokemon_Fire(0,"",100,standard);
+		pP = new Pokemon_Psi(0,"",100,standard);
+		pFg = new Pokemon_Fight(0,"",100,standard);
+		pT = new Pokemon_Thunder(0,"",100,standard);
+		pP2 = new Pokemon_Psi(0,"",100,standard);
 		}
 
 	@Test
@@ -53,9 +52,11 @@ public class Weakness_Resistance_Test {
 		t1 = new Trainer(pL);
 		t2 = new Trainer(pF);
 		
+		t1.select(standard, t2); 	// No modifier
 		t2.select(standard, t1);	// Weak
 		
 		assertEquals(20, pL.getHP());
+		assertEquals(60,pF.getHP());
 		}
 	
 	@Test
@@ -63,9 +64,11 @@ public class Weakness_Resistance_Test {
 		t1 = new Trainer(pF);
 		t2 = new Trainer(pW);
 		
+		t1.select(standard, t2); 	// No modifier
 		t2.select(standard, t1);	// Weak
 		
 		assertEquals(20, pF.getHP());
+		assertEquals(60, pW.getHP());
 		}
 	
 		
@@ -74,9 +77,11 @@ public class Weakness_Resistance_Test {
 		t1 = new Trainer(pW);
 		t2 = new Trainer(pT);
 		
+		t1.select(standard, t2); 	// No modifier
 		t2.select(standard, t1);	// Weak
 		
 		assertEquals(20, pW.getHP());
+		assertEquals(60, pT.getHP());
 		}
 	
 	@Test
@@ -84,9 +89,11 @@ public class Weakness_Resistance_Test {
 		t1 = new Trainer(pW);
 		t2 = new Trainer(pFg);
 		
+		t1.select(standard, t2); 	// No modifier
 		t2.select(standard, t1);	// Resist
 		
 		assertEquals(90, pW.getHP());
+		assertEquals(60, pFg.getHP());
 		}
 
 	@Test
@@ -95,8 +102,10 @@ public class Weakness_Resistance_Test {
 		t2 = new Trainer(pL);
 		
 		t2.select(standard, t1);	// Weak
+		t1.select(standard, t2); 	// No modifier
 		
 		assertEquals(20, pFg.getHP());
+		assertEquals(60, pL.getHP());
 		}
 	
 	@Test
@@ -117,7 +126,9 @@ public class Weakness_Resistance_Test {
 		t2 = new Trainer(pT);
 		
 		t1.select(standard, t2);	// Weak
+		t2.select(standard, t1); 	// No modifier
 		
+		assertEquals(60, pFg.getHP());
 		assertEquals(20, pT.getHP());
 		}
 	
@@ -129,5 +140,15 @@ public class Weakness_Resistance_Test {
 		t1.select(standard, t2);	// Weak
 		
 		assertEquals(20, pP2.getHP());
+		}
+	
+	@Test  //Test for Non-modified Psychic damage
+	public void Psi_vs_Fire_test() {
+		t1 = new Trainer(pP);
+		t2 = new Trainer(pF);
+		
+		t1.select(standard, t2);	// Weak
+		
+		assertEquals(60, pF.getHP());
 		}
 }

@@ -43,6 +43,7 @@ public abstract class AbsTrainer implements ITrainer{
 	 */
 	private void setActive() { 
 		if (reserve.peek() == null) {	// No more bench pokemons
+			this.active = null;
 			return;	
 			}
 		this.active = reserve.poll();	
@@ -51,12 +52,18 @@ public abstract class AbsTrainer implements ITrainer{
 	@Override
 	public void play(Pokemon p) {
 		if (reserve.isEmpty() || reserve.size() < 5) {	//Full bench
+			if (hand.indexOf(p) != -1) { //Removes from hand
+				hand.remove(p);
+				}
 			this.reserve.add(p);	
 			}
 		}
 	
 	@Override
 	public void equip(Energy e) {
+		if (hand.indexOf(e) != -1) { //Removes from hand
+			hand.remove(e);
+			}
 		active.associate(e);
 		}
 	

@@ -19,17 +19,16 @@ public class Bench_Test {
 	public void setUp() throws Exception {
 		Ledger dud = new Ledger();
 		nuke = new Attack("Nuke","", 10000, dud);
-		Attack[] pack = {nuke};
-		Attack[] none = {};
-		p1 = new Pokemon_Fight(0,"",100, pack);
-		p2 = new Pokemon_Fight(0,"",100, none);
-		p3 = new Pokemon_Fight(0,"",100, none);
-		p4 = new Pokemon_Fight(0,"",100, none);
-		p5 = new Pokemon_Fight(0,"",100, none);
-		p6 = new Pokemon_Fight(0,"",100, none);
-		p7 = new Pokemon_Fight(0,"",100, none);
-		p8 = new Pokemon_Fight(0,"",100, none);
-		p9 = new Pokemon_Fight(0,"",100, none);
+
+		p1 = new Pokemon_Fight(0,"",100, nuke);
+		p2 = new Pokemon_Fight(0,"",100);
+		p3 = new Pokemon_Fight(0,"",100);
+		p4 = new Pokemon_Fight(0,"",100);
+		p5 = new Pokemon_Fight(0,"",100);
+		p6 = new Pokemon_Fight(0,"",100);
+		p7 = new Pokemon_Fight(0,"",100);
+		p8 = new Pokemon_Fight(0,"",100);
+		p9 = new Pokemon_Fight(0,"",100);
 		
 		t1 = new Trainer(p1);
 		t2 = new Trainer(p2);
@@ -56,6 +55,9 @@ public class Bench_Test {
 		t2.select(nuke,t1); // p7 out
 		
 		assertEquals(p9, t1.getActive()); // p9 active instead of p8
+		
+		t2.select(nuke, t1); // No active pokemons left
+		
+		assertEquals(null, t1.getActive());
 		}
-
-}
+	}	
