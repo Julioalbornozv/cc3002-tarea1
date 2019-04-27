@@ -30,4 +30,14 @@ public class Pokemon_Leaf extends Abs_Pokemon{
 	public void recieveWaterDmg(Attack att) {
 		resistDmg(att.getDmg());
 		}
+	
+	/**
+	 * Checks if this Leaf Pokemon is equal to another
+	 * @param obj Object being compared
+	 * @return boolean 
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		return obj instanceof Pokemon_Leaf && super.equals(obj);
+		}	
 	}

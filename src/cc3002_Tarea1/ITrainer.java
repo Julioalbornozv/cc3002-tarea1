@@ -1,5 +1,7 @@
 package cc3002_Tarea1;
 
+import java.util.List;
+
 public interface ITrainer {
 	/**
 	 * Common Interface for trainer objects. Trainers have
@@ -44,4 +46,11 @@ public interface ITrainer {
 	 * @return Active Pokemon
 	 */
 	public Pokemon getActive();
-}
+	
+	/**
+	 * Getter for the active pokemon
+	 * 
+	 * @return Active Pokemon
+	 */
+	public List<Card> getHand();
+	}

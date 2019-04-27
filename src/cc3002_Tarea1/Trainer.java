@@ -12,7 +12,7 @@ public class Trainer extends AbsTrainer{
 	 * Creates a new trainer with a starter pokemon
 	 * @param starter
 	 */
-	public Trainer(Pokemon starter) {
-		super(starter);
+	public Trainer(Pokemon starter, Card ...cards) {
+		super(starter, cards);
 		}
 	}

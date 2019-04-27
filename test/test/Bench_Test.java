@@ -18,7 +18,7 @@ public class Bench_Test {
 	@Before
 	public void setUp() throws Exception {
 		Ledger dud = new Ledger();
-		nuke = new Attack("Nuke","",dud, 10000);
+		nuke = new Attack("Nuke","", 10000, dud);
 		Attack[] pack = {nuke};
 		Attack[] none = {};
 		p1 = new Pokemon_Fight(0,"",100, pack);

@@ -11,11 +11,23 @@ public class Attack extends Abs_Attack{
 	 * 
 	 * @param name Attack name
 	 * @param desc Attack description
-	 * @param cost Attack cost
 	 * @param dmg Attack base damage
+	 * @param cost Attack cost (As Ledger object)
 	 */
-	public Attack(String name, String desc, Ledger cost, int dmg) {
-		super(name, desc, cost, dmg);
+	public Attack(String name, String desc, int dmg, Ledger cost) {
+		super(name, desc, dmg, cost);
+		}
+	
+	/**
+	 * Creates new standard attack
+	 * 
+	 * @param name Attack name
+	 * @param desc Attack description
+	 * @param dmg Attack base damage
+	 * @param cost Attack cost (As Energy cards)
+	 */
+	public Attack(String name, String desc, int dmg, Energy ... cards) {
+		super(name, desc, dmg, cards);
 		}
 	
 	/**

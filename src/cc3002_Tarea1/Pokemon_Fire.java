@@ -26,4 +26,14 @@ public class Pokemon_Fire extends Abs_Pokemon{
 	public void recieveWaterDmg(Attack att) {
 		weaknessDmg(att.getDmg());
 		}
+
+	/**
+	 * Checks if this Fire Pokemon is equal to another
+	 * @param obj Object being compared
+	 * @return boolean 
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		return obj instanceof Pokemon_Fire && super.equals(obj);
+		}	
 	}

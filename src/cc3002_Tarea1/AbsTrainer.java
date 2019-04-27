@@ -1,5 +1,6 @@
 package cc3002_Tarea1;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -14,14 +15,19 @@ public abstract class AbsTrainer implements ITrainer{
 	
 	private Pokemon active;
 	private Queue<Pokemon> reserve = new LinkedList<>();
-	private Card[] hand;
+	private List<Card> hand = new LinkedList<>();
 	
 	/** 
-	 * Creates a new Trainer with an active pokemon.
+	 * Creates a new Trainer with an active pokemon and
+	 * an indeterminate number of cards on its hand
 	 * @param starter: active pokemon to be indexed
+	 * @param roll: Number of cards to be given at the start
 	 */
-	protected AbsTrainer(Pokemon starter) { 
+	protected AbsTrainer(Pokemon starter, Card ... roll) { 
 		this.active = starter;
+		for (Card c : roll) {
+			this.hand.add(c);
+			}
 		}
 
 	/**
@@ -72,5 +78,10 @@ public abstract class AbsTrainer implements ITrainer{
 	@Override
 	public Pokemon getActive() {
 		return this.active;
+		}
+	
+	@Override
+	public List<Card> getHand(){
+		return hand;
 		}
 }

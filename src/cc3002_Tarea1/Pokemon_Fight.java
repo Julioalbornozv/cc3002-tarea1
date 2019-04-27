@@ -31,6 +31,11 @@ public class Pokemon_Fight extends Abs_Pokemon{
 		weaknessDmg(att.getDmg());
 		}
 	
+	/**
+	 * Checks if this Fight Pokemon is equal to another
+	 * @param obj Object being compared
+	 * @return boolean 
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		return obj instanceof Pokemon_Fight && super.equals(obj);

@@ -24,7 +24,7 @@ public class Weakness_Resistance_Test {
 	@Before
 	public void setUp() throws Exception {
 		Ledger dud = new Ledger();
-		standard = new Attack("Standard","",dud, 40);
+		standard = new Attack("Standard","", 40, dud);
 		Attack[] std = {standard};
 		
 		pL = new Pokemon_Leaf(0,"",100,std);

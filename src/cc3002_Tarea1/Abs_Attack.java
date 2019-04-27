@@ -19,15 +19,31 @@ public abstract class Abs_Attack implements Ability {
 	 * 
 	 * @param name Attack name
 	 * @param desc Attack description
-	 * @param cost Attack cost (as Ledger Object)
 	 * @param dmg  Attack base damage
+	 * @param cost Attack cost (as Ledger Object)
 	 */
-	protected Abs_Attack(String name, String desc, Ledger cost, int dmg) {
+	protected Abs_Attack(String name, String desc,  int dmg, Ledger cost) {
 		this.name = name;
 		this.description = desc;
 		this.cost = cost;
 		this.dmg = dmg;
-	}
+		}
+	
+	/**
+	 * Creates a new attack
+	 * 
+	 * @param name Attack name
+	 * @param desc Attack description
+	 * @param dmg  Attack base damage
+	 * @param cards Energy cards required by the attack
+	 */
+	protected Abs_Attack(String name, String desc, int dmg, Energy ... cards) {
+		this.name = name;
+		this.description = desc;
+		this.cost = new Ledger(cards);
+		this.dmg = dmg;
+		}
+	
 	/**
 	 * Getter for the attack base damage
 	 * @return Base damage
@@ -59,8 +75,8 @@ public abstract class Abs_Attack implements Ability {
 	@Override
 	public boolean equals(Object obj) {
 		return obj instanceof Ability 
-			   && ((Attack)obj).getName() == this.getName() 
+			   && ((Attack)obj).getName().equals(this.getName())
 			   && ((Attack)obj).getDmg() == this.getDmg() 
-			   && ((Attack)obj).getCost() == this.getCost();
+			   && ((Attack)obj).getCost().equals(this.getCost());
 		}
 	}

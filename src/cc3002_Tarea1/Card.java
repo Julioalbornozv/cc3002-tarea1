@@ -7,7 +7,7 @@ package cc3002_Tarea1;
  */
 public interface Card {
 	/**
-	 * Getter for a card game
+	 * Getter for a card name
 	 * @return Name of card
 	 */
 	public String getName();

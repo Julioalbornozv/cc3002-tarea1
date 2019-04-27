@@ -28,9 +28,9 @@ public class Cost_Evaluation_Test {
 		Ledger l2 = new Ledger(e1s,e2s);
 		Ledger l3 = new Ledger(e1s,e3s);
 		
-		a1 = new Attack("1W","",l1, 20);
-		a2 = new Attack("2W","",l2, 20);
-		a3 = new Attack("1W-1E","",l3, 20);
+		a1 = new Attack("1W","", 20, l1);
+		a2 = new Attack("2W","", 20, l2);
+		a3 = new Attack("1W-1E","", 20, l3);
 		
 		Attack[] skillset = {a1,a2,a3};
 		
