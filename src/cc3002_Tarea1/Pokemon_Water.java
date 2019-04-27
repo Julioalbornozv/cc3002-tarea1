@@ -9,11 +9,12 @@ public class Pokemon_Water extends Abs_Pokemon{
 	/**
 	 * Creates new water type pokemon
 	 * @param id Pokemon id
+	 * @param name Pokemon name
 	 * @param hp Pokemon hp
 	 * @param skills Pokemon skills
 	 */
-	public Pokemon_Water(int id, int hp, Ability[] skills) {
-		super(id,hp,skills);
+	public Pokemon_Water(int id, String name, int hp, Ability[] skills) {
+		super(id,name,hp,skills);
 		}
 	
 	@Override

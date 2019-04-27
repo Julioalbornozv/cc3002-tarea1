@@ -15,6 +15,11 @@ public interface Pokemon {
 	public int getHP();
 	
 	/**
+	 * Getter for pokemon id
+	 * @return Pokemon id
+	 */
+	public int getID();
+	/**
 	 * Getter for skills associated with the pokemon
 	 * @return Set of ablilities
 	 */
@@ -27,9 +32,6 @@ public interface Pokemon {
 	 * @param enemy Active pokemon of the opponent
 	 */
 	public void attack(Attack att, Pokemon enemy);
-	
-	
-	//public void fight(Attack att, Pokemon enemy);
 	
 	/**
 	 * Associates the given energy with this pokemon, by incrementing

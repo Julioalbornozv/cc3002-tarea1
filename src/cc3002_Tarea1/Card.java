@@ -1,5 +1,14 @@
 package cc3002_Tarea1;
 
+/**
+ * Basic Interface for generic cards
+ * 
+ * @author Julio Albornoz Valencia
+ */
 public interface Card {
-	public void play(Card c);
+	/**
+	 * Getter for a card game
+	 * @return Name of card
+	 */
+	public String getName();
 	}

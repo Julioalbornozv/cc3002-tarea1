@@ -9,11 +9,12 @@ public class Pokemon_Thunder extends Abs_Pokemon{
 	/**
 	 * Creates new thunder type pokemon
 	 * @param id Pokemon id
+	 * @param name Pokemon name
 	 * @param hp Pokemon hp
 	 * @param skills Pokemon skills
 	 */
-	public Pokemon_Thunder(int id, int hp, Ability[] skills) {
-		super(id,hp,skills);
+	public Pokemon_Thunder(int id, String name, int hp, Ability[] skills) {
+		super(id,name,hp,skills);
 		}
 	
 	@Override

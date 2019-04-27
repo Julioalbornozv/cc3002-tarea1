@@ -27,13 +27,13 @@ public class Weakness_Resistance_Test {
 		standard = new Attack("Standard","",dud, 40);
 		Attack[] std = {standard};
 		
-		pL = new Pokemon_Leaf(0,100,std);
-		pW = new Pokemon_Water(0,100,std);
-		pF = new Pokemon_Fire(0,100,std);
-		pP = new Pokemon_Psi(0,100,std);
-		pFg = new Pokemon_Fight(0,100,std);
-		pT = new Pokemon_Thunder(0,100,std);
-		pP2 = new Pokemon_Psi(0,100,std);
+		pL = new Pokemon_Leaf(0,"",100,std);
+		pW = new Pokemon_Water(0,"",100,std);
+		pF = new Pokemon_Fire(0,"",100,std);
+		pP = new Pokemon_Psi(0,"",100,std);
+		pFg = new Pokemon_Fight(0,"",100,std);
+		pT = new Pokemon_Thunder(0,"",100,std);
+		pP2 = new Pokemon_Psi(0,"",100,std);
 		}
 
 	@Test
@@ -44,8 +44,8 @@ public class Weakness_Resistance_Test {
 		t1.select(standard, t2);	// Weak
 		t2.select(standard, t1);	// Resist
 		
-		assertEquals(pW.getHP(), 20);
-		assertEquals(pL.getHP(), 90);
+		assertEquals(20, pW.getHP());
+		assertEquals(90, pL.getHP());
 		}
 	
 	@Test
@@ -55,7 +55,7 @@ public class Weakness_Resistance_Test {
 		
 		t2.select(standard, t1);	// Weak
 		
-		assertEquals(pL.getHP(), 20);
+		assertEquals(20, pL.getHP());
 		}
 	
 	@Test
@@ -65,7 +65,7 @@ public class Weakness_Resistance_Test {
 		
 		t2.select(standard, t1);	// Weak
 		
-		assertEquals(pF.getHP(), 20);
+		assertEquals(20, pF.getHP());
 		}
 	
 		
@@ -76,7 +76,7 @@ public class Weakness_Resistance_Test {
 		
 		t2.select(standard, t1);	// Weak
 		
-		assertEquals(pW.getHP(), 20);
+		assertEquals(20, pW.getHP());
 		}
 	
 	@Test
@@ -86,7 +86,7 @@ public class Weakness_Resistance_Test {
 		
 		t2.select(standard, t1);	// Resist
 		
-		assertEquals(pW.getHP(), 90);
+		assertEquals(90, pW.getHP());
 		}
 
 	@Test
@@ -96,7 +96,7 @@ public class Weakness_Resistance_Test {
 		
 		t2.select(standard, t1);	// Weak
 		
-		assertEquals(pFg.getHP(), 20);
+		assertEquals(20, pFg.getHP());
 		}
 	
 	@Test
@@ -107,8 +107,8 @@ public class Weakness_Resistance_Test {
 		t1.select(standard, t2);	// Resist
 		t2.select(standard, t1);	// Weak
 		
-		assertEquals(pFg.getHP(), 20);
-		assertEquals(pP.getHP(), 90);
+		assertEquals(20, pFg.getHP());
+		assertEquals(90, pP.getHP());
 		}
 	
 	@Test
@@ -118,7 +118,7 @@ public class Weakness_Resistance_Test {
 		
 		t1.select(standard, t2);	// Weak
 		
-		assertEquals(pT.getHP(), 20);
+		assertEquals(20, pT.getHP());
 		}
 	
 	@Test
@@ -128,6 +128,6 @@ public class Weakness_Resistance_Test {
 		
 		t1.select(standard, t2);	// Weak
 		
-		assertEquals(pP2.getHP(), 20);
+		assertEquals(20, pP2.getHP());
 		}
 }

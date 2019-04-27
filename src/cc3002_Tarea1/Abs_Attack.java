@@ -50,4 +50,17 @@ public abstract class Abs_Attack implements Ability {
 	public Ledger getCost() {
 		return cost;
 		}
+	
+	/**
+	 * Determines if an attack is the same as another object
+	 * @param Object to be compared
+	 * @return boolean
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		return obj instanceof Ability 
+			   && ((Attack)obj).getName() == this.getName() 
+			   && ((Attack)obj).getDmg() == this.getDmg() 
+			   && ((Attack)obj).getCost() == this.getCost();
+		}
 	}

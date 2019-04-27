@@ -9,11 +9,12 @@ public class Pokemon_Leaf extends Abs_Pokemon{
 	/**
 	 * Creates new leaf type pokemon
 	 * @param id Pokemon id
+	 * @param name Pokemon name
 	 * @param hp Pokemon hp
 	 * @param skills Pokemon skills
 	 */
-	public Pokemon_Leaf(int id, int hp, Ability[] skills) {
-		super(id,hp,skills);
+	public Pokemon_Leaf(int id, String name, int hp, Ability[] skills) {
+		super(id,name,hp,skills);
 		}
 	
 	@Override

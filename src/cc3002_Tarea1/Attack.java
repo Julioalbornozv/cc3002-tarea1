@@ -17,4 +17,13 @@ public class Attack extends Abs_Attack{
 	public Attack(String name, String desc, Ledger cost, int dmg) {
 		super(name, desc, cost, dmg);
 		}
+	
+	/**
+	 * Checks if this attack is equal to another
+	 * @param obj Object being compared
+	 * @return boolean
+	 */
+	public boolean equals(Object obj) {
+		return obj instanceof Attack && super.equals(obj);
+		}
 }

@@ -1,15 +1,16 @@
 package cc3002_Tarea1;
 
 /**
- * Base class for all pokemons, contain implementations for getters
+ * Base class for all Pokemons, contain implementations for getters
  * methods defined by IPokemon and includes methods required
  * to execute attacks.
  * 
  * @author Julio Albornoz Valencia
  */
-public abstract class Abs_Pokemon implements Pokemon{
+public abstract class Abs_Pokemon implements Pokemon, Card{
 	private int id;
 	private int hp;
+	private String name;
 	private Ability[] skillset = new Ability[4];
 	private Ledger power = new Ledger();
 	
@@ -17,11 +18,13 @@ public abstract class Abs_Pokemon implements Pokemon{
 	 * Creates a generic Pokemon, starting with no energy cards
 	 * associated
 	 * @param id Pokemon id
+	 * @param name Pokemon name
 	 * @param hp Pokemon hp
 	 * @param skills Pokemon skills
 	 */
-	protected Abs_Pokemon(int id, int hp, Ability[] skills) {
+	protected Abs_Pokemon(int id,String name, int hp, Ability[] skills) {
 		this.id = id;
+		this.name = name;
 		this.hp = hp;
 		this.skillset = skills;
 		}	
@@ -32,13 +35,22 @@ public abstract class Abs_Pokemon implements Pokemon{
 		}
 	
 	@Override
+	public int getID() {
+		return id;
+		}	
+	@Override
 	public Ability[] getSkillset(){
 		return skillset;
 		}
 	
+	@Override
+	public String getName() {
+		return name;
+		}
 	/**
 	 * Attack command, this method is overriden by each 
 	 * pokemon type to specify the damage type they inflict 
+	 * to an enemy
 	 * @param att Attack to be used
 	 * @param enemy Enemy pokemon to be attacked
 	 */
@@ -111,5 +123,17 @@ public abstract class Abs_Pokemon implements Pokemon{
 	public void recievePsiDmg(Attack att) {
 		normalDmg(att.getDmg());
 		}	
+	
+	/**
+	 * Checks if this card represents the same pokemon as another
+	 * 
+	 * @param obj Object to be compared
+	 * @return boolean
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		return obj instanceof Pokemon 
+				&&((Pokemon)obj).getID() == this.id;
+		}
 	}
 

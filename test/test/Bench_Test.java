@@ -21,15 +21,15 @@ public class Bench_Test {
 		nuke = new Attack("Nuke","",dud, 10000);
 		Attack[] pack = {nuke};
 		Attack[] none = {};
-		p1 = new Pokemon_Fight(0,100, pack);
-		p2 = new Pokemon_Fight(0,100, none);
-		p3 = new Pokemon_Fight(0,100, none);
-		p4 = new Pokemon_Fight(0,100, none);
-		p5 = new Pokemon_Fight(0,100, none);
-		p6 = new Pokemon_Fight(0,100, none);
-		p7 = new Pokemon_Fight(0,100, none);
-		p8 = new Pokemon_Fight(0,100, none);
-		p9 = new Pokemon_Fight(0,100, none);
+		p1 = new Pokemon_Fight(0,"",100, pack);
+		p2 = new Pokemon_Fight(0,"",100, none);
+		p3 = new Pokemon_Fight(0,"",100, none);
+		p4 = new Pokemon_Fight(0,"",100, none);
+		p5 = new Pokemon_Fight(0,"",100, none);
+		p6 = new Pokemon_Fight(0,"",100, none);
+		p7 = new Pokemon_Fight(0,"",100, none);
+		p8 = new Pokemon_Fight(0,"",100, none);
+		p9 = new Pokemon_Fight(0,"",100, none);
 		
 		t1 = new Trainer(p1);
 		t2 = new Trainer(p2);

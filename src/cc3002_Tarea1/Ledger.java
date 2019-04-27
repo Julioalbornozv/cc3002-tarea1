@@ -83,4 +83,15 @@ public class Ledger {
 			}
 		return true;
 		}
+	
+	/**
+	 * Determines if a Ledger is the same as another object
+	 * @param Object to be compared
+	 * @return boolean
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		Ledger other = ((Ledger)obj);
+		return obj instanceof Ledger && (other.count).equals(this.count);
+		}
 	}

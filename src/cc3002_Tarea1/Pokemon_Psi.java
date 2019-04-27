@@ -9,11 +9,12 @@ public class Pokemon_Psi extends Abs_Pokemon{
 	/**
 	 * Creates new psychic type pokemon
 	 * @param id Pokemon id
+	 * @param name Pokemon name
 	 * @param hp Pokemon hp
 	 * @param skills Pokemon skills
 	 */
-	public Pokemon_Psi(int id, int hp, Ability[] skills) {
-		super(id,hp,skills);
+	public Pokemon_Psi(int id,String name, int hp, Ability[] skills) {
+		super(id,name,hp,skills);
 		}
 	
 	@Override
