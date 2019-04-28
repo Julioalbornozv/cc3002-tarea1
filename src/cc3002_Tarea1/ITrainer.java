@@ -12,7 +12,6 @@ import java.util.List;
  */
 public interface ITrainer {
 	
-	
 	/**
 	 * Plays a card
 	 * 

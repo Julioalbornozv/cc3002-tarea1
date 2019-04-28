@@ -56,6 +56,7 @@ public abstract class AbsTrainer implements ITrainer{
 			}
 		}
 	
+	@Override
 	public void play(Card card) {
 		if (hand.indexOf(card) != -1) { //Removes from hand
 			hand.remove(card);
