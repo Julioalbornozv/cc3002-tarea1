@@ -15,6 +15,11 @@ public class Energy_Leaf extends Abs_Energy {
 	public int getKey() {
 		return 2;
 		}
+	
+	@Override
+	public void AddTo(Ledger p) {
+		p.AddLeafEnergy();
+		}
 	/**
 	 * Checks if this Leaf Energy is equal to another
 	 * @param obj Object being compared

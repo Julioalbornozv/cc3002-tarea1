@@ -16,6 +16,10 @@ public class Energy_Water extends Abs_Energy{
 		return 5;
 		}
 	
+	@Override
+	public void AddTo(Ledger p) {
+		p.AddWaterEnergy();
+		}
 	/**
 	 * Checks if this Water Energy is equal to another
 	 * @param obj Object being compared

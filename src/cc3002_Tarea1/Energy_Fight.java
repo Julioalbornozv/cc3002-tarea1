@@ -15,6 +15,11 @@ public class Energy_Fight extends Abs_Energy{
 	public int getKey() {
 		return 0;
 		}
+	
+	@Override
+	public void AddTo(Ledger p) {
+		p.AddFightEnergy();
+		}
 	/**
 	 * Checks if this Fight Energy is equal to another
 	 * @param obj Object being compared

@@ -19,4 +19,10 @@ public interface Energy extends Card{
 	 * @return int Hash key used by Ledger
 	 */
 	int getKey();
+	
+	/**
+	 * Each energy will tell the Ledger how it should handle them
+	 * @param b
+	 */
+	void AddTo(Ledger b);
 }

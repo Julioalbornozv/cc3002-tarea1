@@ -1,7 +1,7 @@
 package cc3002_Tarea1;
 
 /**
- * Common interface for all skills. Skills have a name, a dexription
+ * Common interface for all skills. Skills have a name, a desription
  * and a cost associated with it.
  * 
  * 

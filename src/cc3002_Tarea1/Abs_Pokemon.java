@@ -79,7 +79,7 @@ public abstract class Abs_Pokemon implements Pokemon{
 	
 	@Override
 	public void associate(Energy e) {
-		power.add(e.getKey());
+		e.AddTo(power);
 		}
 	
 	/**

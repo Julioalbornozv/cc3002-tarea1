@@ -15,6 +15,11 @@ public class Energy_Thunder extends Abs_Energy{
 	public int getKey() {
 		return 4;
 		}
+	
+	@Override
+	public void AddTo(Ledger p) {
+		p.AddThunderEnergy();
+		}
 	/**
 	 * Checks if this Thunder Energy is equal to another
 	 * @param obj Object being compared
