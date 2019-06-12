@@ -1,6 +1,6 @@
 package cc3002_Tarea1;
 
-public abstract class Abs_Energy implements Energy{
+public abstract class Abs_Energy implements IEnergy{
 	private String name;
 	public Abs_Energy(String name) {
 		this.name = name;
@@ -13,7 +13,7 @@ public abstract class Abs_Energy implements Energy{
 
 	@Override 
 	public void beingPlayedBy(ITrainer player) {
-		Pokemon active = player.getActive();
+		IPokemon active = player.getActive();  //TODO
 		active.associate(this);
 		}
 	
@@ -24,6 +24,6 @@ public abstract class Abs_Energy implements Energy{
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		return obj instanceof Energy;
+		return obj instanceof IEnergy;
 		}
 	}

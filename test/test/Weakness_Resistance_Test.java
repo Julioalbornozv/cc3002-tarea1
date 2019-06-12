@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import cc3002_Tarea1.Attack;
 import cc3002_Tarea1.Ledger;
-import cc3002_Tarea1.Pokemon;
+import cc3002_Tarea1.IPokemon;
 import cc3002_Tarea1.Pokemon_Fight;
 import cc3002_Tarea1.Pokemon_Fire;
 import cc3002_Tarea1.Pokemon_Leaf;
@@ -17,7 +17,7 @@ import cc3002_Tarea1.Pokemon_Water;
 import cc3002_Tarea1.Trainer;
 
 public class Weakness_Resistance_Test {
-	private Pokemon pL,pW,pF,pP,pFg,pT,pP2;
+	private IPokemon pL,pW,pF,pP,pFg,pT,pP2;
 	private Trainer t1, t2;
 	private Attack standard;
 	

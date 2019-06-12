@@ -12,11 +12,6 @@ public class Energy_Thunder extends Abs_Energy{
 		}
 	
 	@Override
-	public int getKey() {
-		return 4;
-		}
-	
-	@Override
 	public void AddTo(Ledger p) {
 		p.AddThunderEnergy();
 		}

@@ -26,7 +26,7 @@ public class Attack extends Abs_Attack{
 	 * @param dmg Attack base damage
 	 * @param cost Attack cost (As Energy cards)
 	 */
-	public Attack(String name, String desc, int dmg, Energy ... cards) {
+	public Attack(String name, String desc, int dmg, IEnergy ... cards) {
 		super(name, desc, dmg, cards);
 		}
 	

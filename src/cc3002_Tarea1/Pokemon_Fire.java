@@ -13,12 +13,12 @@ public class Pokemon_Fire extends Abs_Pokemon{
 	 * @param hp Pokemon hp
 	 * @param skills Pokemon skills
 	 */
-	public Pokemon_Fire(int id, String name, int hp, Ability ... skills) {
+	public Pokemon_Fire(int id, String name, int hp, IAbility ... skills) {
 		super(id,name,hp,skills);
 		}
 	
 	@Override
-	public void fight(Attack att, Pokemon enemy) {
+	public void fight(Attack att, IPokemon enemy) {
 		enemy.recieveFireDmg(att);
 		}
 	

@@ -8,7 +8,7 @@ package cc3002_Tarea1;
  * @author Julio Albornoz Valencia
  */
 
-public abstract class Abs_Attack implements Ability {
+public abstract class Abs_Attack implements IAbility {
 	private String name;
 	private String description;
 	private Ledger cost;
@@ -37,7 +37,7 @@ public abstract class Abs_Attack implements Ability {
 	 * @param dmg  Attack base damage
 	 * @param cards Energy cards required by the attack
 	 */
-	protected Abs_Attack(String name, String desc, int dmg, Energy ... cards) {
+	protected Abs_Attack(String name, String desc, int dmg, IEnergy ... cards) {
 		this.name = name;
 		this.description = desc;
 		this.cost = new Ledger(cards);
@@ -74,7 +74,7 @@ public abstract class Abs_Attack implements Ability {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		return obj instanceof Ability 
+		return obj instanceof IAbility 
 			   && ((Attack)obj).getName().equals(this.getName())
 			   && ((Attack)obj).getDmg() == this.getDmg() 
 			   && ((Attack)obj).getCost().equals(this.getCost());

@@ -17,7 +17,7 @@ public interface ITrainer {
 	 * 
 	 * @param c Card to be played
 	 */
-	public void play(Card x);
+	public void play(ICard x);
 	
 	/**
 	 * Uses an attack against the active pokemon of the enemy player
@@ -40,18 +40,18 @@ public interface ITrainer {
 	 * 
 	 * @return Active Pokemon
 	 */
-	public Pokemon getActive();
+	public IPokemon getActive();
 	
 	/**
 	 * Getter for the active pokemon
 	 * 
 	 * @return Active Pokemon
 	 */
-	public List<Card> getHand();
+	public List<ICard> getHand();
 
 	/**
 	 * Adds pokemon to the bench
 	 * @param p
 	 */
-	void addToBench(Pokemon p);
+	void addToBench(IPokemon p);
 	}

@@ -12,11 +12,6 @@ public class Energy_Leaf extends Abs_Energy {
 		}
 	
 	@Override
-	public int getKey() {
-		return 2;
-		}
-	
-	@Override
 	public void AddTo(Ledger p) {
 		p.AddLeafEnergy();
 		}

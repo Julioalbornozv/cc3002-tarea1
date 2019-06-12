@@ -10,11 +10,11 @@ import java.util.List;
  * 
  * @author Julio Albornoz Valencia
  */
-public abstract class Abs_Pokemon implements Pokemon{
+public abstract class Abs_Pokemon implements IPokemon{
 	private int id;
 	private int hp;
 	private String name;
-	private List<Ability> skillset = new LinkedList<>();
+	private List<IAbility> skillset = new LinkedList<>();
 	private Ledger power = new Ledger();
 	
 	/**
@@ -26,11 +26,11 @@ public abstract class Abs_Pokemon implements Pokemon{
 	 * @param skills Pokemon skills
 	 */
 
-	protected Abs_Pokemon(int id,String name, int hp, Ability ... skills) {
+	protected Abs_Pokemon(int id,String name, int hp, IAbility ... skills) {
 		this.id = id;
 		this.name = name;
 		this.hp = hp;
-		for (Ability sk : skills) {
+		for (IAbility sk : skills) {
 			if (skillset.size() < 4) { // 4 skill restriction
 				skillset.add(sk);
 				}
@@ -48,7 +48,7 @@ public abstract class Abs_Pokemon implements Pokemon{
 		return id;
 		}	
 	@Override
-	public List<Ability> getSkillset(){
+	public List<IAbility> getSkillset(){
 		return skillset;
 		}
 	
@@ -63,7 +63,7 @@ public abstract class Abs_Pokemon implements Pokemon{
 	 * @param att Attack to be used
 	 * @param enemy Enemy pokemon to be attacked
 	 */
-	protected void fight (Attack skill, Pokemon enemy) {}
+	protected void fight (Attack skill, IPokemon enemy) {}
 	
 	@Override
 	public void beingPlayedBy(ITrainer player){
@@ -71,14 +71,14 @@ public abstract class Abs_Pokemon implements Pokemon{
 		}
 	
 	@Override
-	public void attack(Attack skill, Pokemon enemy) {
+	public void attack(Attack skill, IPokemon enemy) {
 		if (power.evalCost(skill)) {
 			this.fight(skill, enemy);
 			}	
 		}	
 	
 	@Override
-	public void associate(Energy e) {
+	public void associate(IEnergy e) {
 		e.AddTo(power);
 		}
 	
@@ -146,8 +146,8 @@ public abstract class Abs_Pokemon implements Pokemon{
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		return obj instanceof Pokemon 
-				&&((Pokemon)obj).getID() == this.id;
+		return obj instanceof IPokemon 
+				&&((IPokemon)obj).getID() == this.id;
 		}
 	}
 

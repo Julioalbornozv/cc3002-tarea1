@@ -12,11 +12,6 @@ public class Energy_Fire extends Abs_Energy{
 		}
 	
 	@Override
-	public int getKey() {
-		return 1;
-		}
-	
-	@Override
 	public void AddTo(Ledger p) {
 		p.AddFireEnergy();
 		}

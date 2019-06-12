@@ -28,8 +28,8 @@ public class Ledger {
 	 * Creates Ledger with a set of energy cards already stored
 	 * @param eSet
 	 */
-	public Ledger(Energy ... eSet) {
-		for (Energy header : eSet) {
+	public Ledger(IEnergy ... eSet) {
+		for (IEnergy header : eSet) {
 			header.AddTo(this);
 			}
 		}
@@ -114,7 +114,7 @@ public class Ledger {
 	 * @param skill Skill to be evaluated
 	 * @return boolean
 	 */
-	public boolean evalCost(Ability skill) {
+	public boolean evalCost(IAbility skill) {
 		Ledger cost = skill.getCost();
 		EnergyType[] keys = cost.getKeys();
 		

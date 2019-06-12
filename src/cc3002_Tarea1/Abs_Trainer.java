@@ -1,7 +1,9 @@
 package cc3002_Tarea1;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Base class for trainer objects, this objects are used by
@@ -11,21 +13,24 @@ import java.util.Queue;
  * @author Julio Albornoz Valencia
 */
 
-public abstract class AbsTrainer implements ITrainer{
+public abstract class Abs_Trainer implements ITrainer, Observable{
 	
-	private Pokemon active;
-	private Queue<Pokemon> reserve = new LinkedList<>();
-	private List<Card> hand = new LinkedList<>();
-	
+	private IPokemon active;
+	private Queue<IPokemon> reserve = new LinkedList<>();
+	private Queue<ICard> prize = new LinkedList<>();
+	private List<ICard> hand = new LinkedList<>();
+	private List<ICard> cemetery = new Stack<>();
+	private Deck deck = new Deck();
+	private IMonitor judge;
 	/** 
 	 * Creates a new Trainer with an active pokemon and
 	 * an indeterminate number of cards on its hand
 	 * @param starter: active pokemon to be indexed
 	 * @param roll: Number of cards to be given at the start
 	 */
-	protected AbsTrainer(Pokemon starter, Card ... roll) { 
+	protected Abs_Trainer(IPokemon starter, ICard ... roll) { 
 		this.active = starter;
-		for (Card c : roll) {
+		for (ICard c : roll) {
 			this.hand.add(c);
 			}
 		}
@@ -33,7 +38,7 @@ public abstract class AbsTrainer implements ITrainer{
 	/**
 	 * Creates an empty Trainer
 	 */
-	protected AbsTrainer() {}	
+	protected Abs_Trainer() {}	
 	
 	/**
 	 * Private Setter
@@ -50,14 +55,14 @@ public abstract class AbsTrainer implements ITrainer{
 		}
 	
 	@Override
-	public void addToBench(Pokemon p) {
+	public void addToBench(IPokemon p) {
 		if (reserve.isEmpty() || reserve.size() < 5) {	//Full bench
 			this.reserve.add(p);
 			}
 		}
 	
 	@Override
-	public void play(Card card) {
+	public void play(ICard card) {
 		if (hand.indexOf(card) != -1) { //Removes from hand
 			hand.remove(card);
 			}
@@ -74,19 +79,24 @@ public abstract class AbsTrainer implements ITrainer{
 	
 	@Override
 	public void select(Attack att, Trainer opponent) {
-		Pokemon enemy = opponent.getActive();
+		IPokemon enemy = opponent.getActive();
 		this.active.attack(att, enemy);
 		opponent.checkActive();
 		
 		}
 	
 	@Override
-	public Pokemon getActive() {
+	public IPokemon getActive() {
 		return this.active;
 		}
 	
 	@Override
-	public List<Card> getHand(){
+	public List<ICard> getHand(){
 		return hand;
 		}
-}
+	
+	@Override
+	public void registerObserver(IMonitor m) {
+		this.judge = m;
+		}
+	}

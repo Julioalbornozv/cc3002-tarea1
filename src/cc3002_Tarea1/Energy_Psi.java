@@ -12,11 +12,6 @@ public class Energy_Psi extends Abs_Energy{
 		}
 	
 	@Override
-	public int getKey() {
-		return 3;
-		}
-	
-	@Override
 	public void AddTo(Ledger p) {
 		p.AddPsiEnergy();
 		}

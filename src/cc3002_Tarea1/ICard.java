@@ -5,7 +5,7 @@ package cc3002_Tarea1;
  * 
  * @author Julio Albornoz Valencia
  */
-public interface Card {
+public interface ICard {
 	/**
 	 * Getter for a card name
 	 * @return Name of card

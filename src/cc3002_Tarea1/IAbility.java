@@ -7,7 +7,7 @@ package cc3002_Tarea1;
  * 
  * @author Julio Albornoz Valencia
  */
-public interface Ability {
+public interface IAbility {
 	
 	/**
 	 * Getter for the cost 

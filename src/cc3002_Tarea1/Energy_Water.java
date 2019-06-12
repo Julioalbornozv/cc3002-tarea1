@@ -12,11 +12,6 @@ public class Energy_Water extends Abs_Energy{
 		}
 	
 	@Override
-	public int getKey() {
-		return 5;
-		}
-	
-	@Override
 	public void AddTo(Ledger p) {
 		p.AddWaterEnergy();
 		}

@@ -9,7 +9,7 @@ import java.util.List;
  * 
  * @author Julio Albornozz Valencia
  */
-public interface Pokemon extends Card{  
+public interface IPokemon extends ICard{  
 	/**
 	 * Getter for poekemon's hp
 	 * @return Pokemon health
@@ -25,7 +25,7 @@ public interface Pokemon extends Card{
 	 * Getter for skills associated with the pokemon
 	 * @return Set of ablilities
 	 */
-	public List<Ability> getSkillset();
+	public List<IAbility> getSkillset();
 	
 	/**
 	 * Attacks specified pokemon only if the given attack cost is
@@ -33,14 +33,14 @@ public interface Pokemon extends Card{
 	 * @param att Attack to be used
 	 * @param enemy Active pokemon of the opponent
 	 */
-	public void attack(Attack att, Pokemon enemy);
+	public void attack(Attack att, IPokemon enemy);
 	
 	/**
 	 * Associates the given energy with this pokemon, by incrementing
 	 * the energy card counters stored by the Ledger.
 	 * @param energy Energy being equipped
 	 */
-	public void associate(Energy energy);
+	public void associate(IEnergy energy);
 	
 	/**
 	 * Receives fire damage from an opponent

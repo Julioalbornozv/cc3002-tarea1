@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import cc3002_Tarea1.Ability;
+import cc3002_Tarea1.IAbility;
 import cc3002_Tarea1.Attack;
-import cc3002_Tarea1.Energy;
+import cc3002_Tarea1.IEnergy;
 import cc3002_Tarea1.Energy_Fight;
 import cc3002_Tarea1.Energy_Fire;
 import cc3002_Tarea1.Energy_Leaf;
@@ -15,7 +15,7 @@ import cc3002_Tarea1.Energy_Psi;
 import cc3002_Tarea1.Energy_Thunder;
 import cc3002_Tarea1.Energy_Water;
 import cc3002_Tarea1.Ledger;
-import cc3002_Tarea1.Pokemon;
+import cc3002_Tarea1.IPokemon;
 import cc3002_Tarea1.Pokemon_Fight;
 import cc3002_Tarea1.Pokemon_Fire;
 import cc3002_Tarea1.Pokemon_Leaf;
@@ -24,10 +24,10 @@ import cc3002_Tarea1.Pokemon_Thunder;
 import cc3002_Tarea1.Pokemon_Water;
 
 public class Equality_Test {
-	private Energy e1, e2, e3, e4, e5, e6, e7, e8;
+	private IEnergy e1, e2, e3, e4, e5, e6, e7, e8;
 	private Ledger l1, l2, l3, l4, l5, l6;
-	private Ability a1, a2, a3, a4, a5, a6;
-	private Pokemon p1, p2, p3, p4, p5, p6, p7, p8 ,p9 ,p10;
+	private IAbility a1, a2, a3, a4, a5, a6;
+	private IPokemon p1, p2, p3, p4, p5, p6, p7, p8 ,p9 ,p10;
 	@Before
 	public void setUp() throws Exception {
 		e1 = new Energy_Leaf("Leaf Energy");
@@ -63,8 +63,7 @@ public class Equality_Test {
 		p8 = new Pokemon_Thunder(0,"generic",100,a1,a2,a3,a4);
 		p9 = new Pokemon_Fight(0,"generic",100,a1,a2,a3,a4);
 		p10 = new Pokemon_Fire(0,"generic",100,a1,a2,a3,a4);
-		
-		
+				
 		}
 
 	@Test
