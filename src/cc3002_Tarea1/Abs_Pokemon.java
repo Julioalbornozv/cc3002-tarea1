@@ -14,6 +14,7 @@ public abstract class Abs_Pokemon implements IPokemon{
 	private int id;
 	private int hp;
 	private String name;
+	private Item modifier = null;
 	private List<IAbility> skillset = new LinkedList<>();
 	private Ledger power = new Ledger();
 	
@@ -35,7 +36,6 @@ public abstract class Abs_Pokemon implements IPokemon{
 				skillset.add(sk);
 				}
 			}
-		;
 		}	
 	
 	@Override
@@ -86,7 +86,8 @@ public abstract class Abs_Pokemon implements IPokemon{
 	 * Base damage with no modifiers
 	 * @param dmg Base damage
 	 */
-	protected void normalDmg(int dmg) {
+	@Override
+	public void normalDmg(int dmg) {
 		this.hp -= dmg;
 		}
 
@@ -138,6 +139,16 @@ public abstract class Abs_Pokemon implements IPokemon{
 		normalDmg(att.getDmg());
 		}	
 	
+	@Override
+	public void associateItem(Item it) {
+		this.modifier = it;
+		}
+	
+
+	@Override 
+	public void accept(Visitor m){ 
+		//TODO make each stage pokemon to implement this method
+		}
 	/**
 	 * Checks if this card represents the same pokemon as another
 	 * 

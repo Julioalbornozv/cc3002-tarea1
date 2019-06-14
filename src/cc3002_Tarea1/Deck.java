@@ -12,6 +12,9 @@ public class Deck {
 	
 	public void add(ICard ... cards) {
 		for (ICard c : cards) {
+			if (deck.size() == 60) { // Too much cards
+				break;
+				}
 			deck.push(c);
 			}
 		this.shuffle();
@@ -19,7 +22,7 @@ public class Deck {
 	
 	public ICard[] draw(int n) {
 		List<ICard> buffer = new ArrayList<ICard>();
-		while(n != 0 || !deck.isEmpty()) {
+		while(n != 0 && !deck.empty()) {
 			buffer.add(deck.pop());
 			n--;
 			}
@@ -37,12 +40,13 @@ public class Deck {
 				}
 			while(index != 1) {
 				aux.push(deck.pop());
+				index--;
 				}
 			ret.add(deck.pop());
 			n--;
 			}
 		// Return taken cards to the deck
-		while (!aux.isEmpty()) {
+		while (!aux.empty()) {
 			deck.push(aux.pop());
 			}
 		return ret.toArray(new ICard[ret.size()]);
@@ -54,5 +58,9 @@ public class Deck {
 	
 	public int size() {
 		return deck.size();
+		}
+	
+	public boolean contains(ICard c) {
+		return deck.contains(c);
 		}
 	}

@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cc3002_Tarea1.Attack;
+import cc3002_Tarea1.Judge;
 import cc3002_Tarea1.Ledger;
 import cc3002_Tarea1.Pokemon_Fight;
 import cc3002_Tarea1.Trainer;
@@ -13,6 +14,7 @@ import cc3002_Tarea1.Trainer;
 public class Bench_Test {
 	private Pokemon_Fight p1,p2,p3,p4,p5,p6,p7,p8,p9;
 	private Trainer t1, t2;
+	private Judge Monitor;
 	private Attack nuke;
 	
 	@Before
@@ -32,6 +34,10 @@ public class Bench_Test {
 		
 		t1 = new Trainer(p1);
 		t2 = new Trainer(p2);
+		
+		Monitor = new Judge(t1,t2);
+		t1.registerObserver(Monitor);
+		t2.registerObserver(Monitor);
 		}
 
 	@Test

@@ -13,15 +13,16 @@ import java.util.Stack;
  * @author Julio Albornoz Valencia
 */
 
-public abstract class Abs_Trainer implements ITrainer, Observable{
+public abstract class Abs_Trainer implements ITrainer, ISubject{
 	
 	private IPokemon active;
+	private IPokemon selected;
 	private Queue<IPokemon> reserve = new LinkedList<>();
 	private Queue<ICard> prize = new LinkedList<>();
 	private List<ICard> hand = new LinkedList<>();
 	private List<ICard> cemetery = new Stack<>();
 	private Deck deck = new Deck();
-	private IMonitor judge;
+	private IObserver judge;
 	/** 
 	 * Creates a new Trainer with an active pokemon and
 	 * an indeterminate number of cards on its hand
@@ -66,6 +67,7 @@ public abstract class Abs_Trainer implements ITrainer, Observable{
 		if (hand.indexOf(card) != -1) { //Removes from hand
 			hand.remove(card);
 			}
+		judge.notifyCard(card);
 		card.beingPlayedBy(this);
 		}
 	
@@ -95,8 +97,23 @@ public abstract class Abs_Trainer implements ITrainer, Observable{
 		return hand;
 		}
 	
+	@Override 
+	public void setCurrent(IPokemon p) {
+		this.selected = p;
+		}
+	
 	@Override
-	public void registerObserver(IMonitor m) {
+	public IPokemon getCurrent() {
+		return selected;
+		}
+	
+	@Override
+	public IObserver getObs() {
+		return this.judge;
+		}
+
+	@Override
+	public void registerObserver(IObserver m) {
 		this.judge = m;
 		}
 	}

@@ -18,4 +18,6 @@ public interface ICard {
 	 * @param player Trainer playing the card
 	 */
 	public void beingPlayedBy(ITrainer player);
+
+	public void accept(Visitor modifier);
 	}

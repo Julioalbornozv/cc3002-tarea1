@@ -53,5 +53,12 @@ public interface ITrainer {
 	 * Adds pokemon to the bench
 	 * @param p
 	 */
-	void addToBench(IPokemon p);
+	public void addToBench(IPokemon p);
+
+	public void setCurrent(IPokemon p);
+
+	public IPokemon getCurrent();
+
+	public IObserver getObs();
+
 	}

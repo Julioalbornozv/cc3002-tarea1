@@ -5,6 +5,7 @@ import cc3002_Tarea1.Trainer;
 import cc3002_Tarea1.Attack;
 import cc3002_Tarea1.Ledger;
 import cc3002_Tarea1.Energy_Leaf;
+import cc3002_Tarea1.Judge;
 import cc3002_Tarea1.Energy_Fire;
 
 import org.junit.Before;
@@ -14,6 +15,7 @@ public class Cost_Evaluation_Test {
 	private Trainer t1, t2;
 	private Pokemon_Leaf p1, p2;
 	private Attack a1,a2,a3;
+	private Judge Monitor;
 	private Energy_Leaf e1 = new Energy_Leaf("");
 	private Energy_Leaf e2 = new Energy_Leaf("");
 	private Energy_Fire e3 = new Energy_Fire("");
@@ -37,6 +39,13 @@ public class Cost_Evaluation_Test {
 		
 		t1 = new Trainer(p1);
 		t2 = new Trainer(p2);
+		
+		t1.setCurrent(t1.getActive());
+		t2.setCurrent(t2.getActive());
+		
+		Monitor = new Judge(t1,t2);
+		t1.registerObserver(Monitor);
+		t2.registerObserver(Monitor);
 		}
 
 	@Test

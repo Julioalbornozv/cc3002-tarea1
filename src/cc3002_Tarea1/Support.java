@@ -1,6 +1,6 @@
 package cc3002_Tarea1;
 
-public class Support extends Abs_TrainerCard{
+public abstract class Support implements ITrainerCard, ICard{
 
 	
 

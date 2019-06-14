@@ -77,4 +77,8 @@ public interface IPokemon extends ICard{
 	 * @param att Enemy attack
 	 */
 	public void recievePsiDmg(Attack att);
+	
+	public void associateItem(Item i);
+
+	public void normalDmg(int i);
 }

@@ -9,6 +9,7 @@ import cc3002_Tarea1.Attack;
 import cc3002_Tarea1.IEnergy;
 import cc3002_Tarea1.Energy_Leaf;
 import cc3002_Tarea1.IPokemon;
+import cc3002_Tarea1.Judge;
 import cc3002_Tarea1.Pokemon_Fire;
 import cc3002_Tarea1.Pokemon_Leaf;
 import cc3002_Tarea1.Pokemon_Water;
@@ -17,6 +18,7 @@ import cc3002_Tarea1.Trainer;
 public class Hand_Test {
 	private Trainer t1;
 	private Attack dud;
+	private Judge Monitor;
 	private IPokemon p1, p2, p3;
 	private IEnergy e1;
 	
@@ -30,11 +32,15 @@ public class Hand_Test {
 		
 		e1 = new Energy_Leaf("");
 		t1 = new Trainer(p1, p2, e1, p3);
-	}
+		
+		Monitor = new Judge(t1);
+		t1.registerObserver(Monitor);
+		}
 
 	@Test
 	public void Hand_test() {
 		t1.play(p2);
+		t1.setCurrent(p2);
 		t1.play(e1);
 		
 		assertEquals(p1, t1.getActive());

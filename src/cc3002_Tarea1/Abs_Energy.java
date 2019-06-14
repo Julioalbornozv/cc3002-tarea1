@@ -13,8 +13,13 @@ public abstract class Abs_Energy implements IEnergy{
 
 	@Override 
 	public void beingPlayedBy(ITrainer player) {
-		IPokemon active = player.getActive();  //TODO
-		active.associate(this);
+		IPokemon current = player.getCurrent(); 
+		current.associate(this);
+		}
+	
+	@Override 
+	public void accept(Visitor m){
+		m.visitEnergy(this);
 		}
 	
 	/**
