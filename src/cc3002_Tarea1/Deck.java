@@ -17,7 +17,6 @@ public class Deck {
 				}
 			deck.push(c);
 			}
-		this.shuffle();
 		}
 	
 	public ICard[] draw(int n) {
@@ -29,6 +28,14 @@ public class Deck {
 		
 		return buffer.toArray(new ICard[buffer.size()]);
 		}
+	
+	public ICard[] drawLast(int n) {
+		Collections.reverse(deck);
+		ICard[] ret = this.draw(n);
+		Collections.reverse(deck);
+		return ret;
+		}
+	
 	
 	public ICard[] extract(ICard target, int n) {
 		List<ICard> ret = new ArrayList<ICard>();
@@ -51,7 +58,7 @@ public class Deck {
 			}
 		return ret.toArray(new ICard[ret.size()]);
 		}
-	
+		
 	public void shuffle() {
 		Collections.shuffle(deck);
 		}

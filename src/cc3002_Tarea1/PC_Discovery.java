@@ -6,7 +6,7 @@ public class PC_Discovery extends Effect {
 	public void execute(Judge m) {
 		ITrainer curr = m.getTrainer();
 		if (m.coinflip() == 0) {
-			curr.getDeck().draw(3);
+			curr.getDeck().drawLast(3);
 			}	
 		else {
 			curr.getDeck().draw(2);
