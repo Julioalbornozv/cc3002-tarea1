@@ -41,5 +41,7 @@ public abstract class Abs_Stadium implements Visitor, ITrainerCard{
 	@Override
 	public void visitStadium(Abs_Stadium t) {}
 	
+	@Override
+	public void visitSupport(Support s) {}
 	
 	}

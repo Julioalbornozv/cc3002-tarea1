@@ -63,4 +63,10 @@ public class Deck {
 	public boolean contains(ICard c) {
 		return deck.contains(c);
 		}
+	public boolean isEmpty() {
+		return deck.isEmpty();
+		}
+	public ICard peek() {
+		return deck.peek();
+		}
 	}

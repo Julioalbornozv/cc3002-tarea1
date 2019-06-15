@@ -20,7 +20,7 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 	private Queue<IPokemon> reserve = new LinkedList<>();
 	private Queue<ICard> prize = new LinkedList<>();
 	private List<ICard> hand = new LinkedList<>();
-	private List<ICard> cemetery = new Stack<>();
+	private Stack<ICard> cemetery = new Stack<>();
 	private Deck deck = new Deck();
 	private IObserver judge;
 	/** 
@@ -68,7 +68,6 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 			hand.remove(card);
 			}
 		judge.notifyCard(card);
-		card.beingPlayedBy(this);
 		}
 	
 
@@ -84,7 +83,11 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 		IPokemon enemy = opponent.getActive();
 		this.active.attack(att, enemy);
 		opponent.checkActive();
+		}
 		
+	@Override
+	public void discard(ICard card) {
+		cemetery.push(card);
 		}
 	
 	@Override
@@ -105,6 +108,16 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 	@Override
 	public IPokemon getCurrent() {
 		return selected;
+		}
+	
+	@Override
+	public Deck getDeck() {
+		return deck;
+		}
+	
+	@Override
+	public Stack<ICard> getCemetery() {
+		return cemetery;
 		}
 	
 	@Override

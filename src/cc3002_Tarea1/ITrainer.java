@@ -1,6 +1,7 @@
 package cc3002_Tarea1;
 
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Common Interface for trainer objects. Trainers have
@@ -60,5 +61,11 @@ public interface ITrainer {
 	public IPokemon getCurrent();
 
 	public IObserver getObs();
+
+	void discard(ICard card);
+
+	Deck getDeck();
+
+	Stack<ICard> getCemetery();
 
 	}
