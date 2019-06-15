@@ -6,6 +6,6 @@ public interface Visitor {
 	public void visitBasicPokemon();
 	public void visitS1_Pokemon();
 	public void visitS2_Pokemon();
-	public void visitStadium(Abs_Stadium t);
+	public void visitStadium(Stadium t);
 	public void visitSupport(Support s);
 	}

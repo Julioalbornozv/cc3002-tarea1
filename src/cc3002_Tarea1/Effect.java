@@ -4,7 +4,7 @@ public abstract class Effect implements Visitor{
 
 	public Effect() {}
 	public abstract void execute(Judge m);
-	public void executeOver(Judge m, ICard card) {}
+	public abstract void executeOver(Judge m, ICard card);
 	
 	@Override
 	public void visitEnergy(IEnergy e) {
@@ -31,7 +31,7 @@ public abstract class Effect implements Visitor{
 		}
 
 	@Override
-	public void visitStadium(Abs_Stadium t) {
+	public void visitStadium(Stadium t) {
 		// TODO Auto-generated method stub
 		
 		}

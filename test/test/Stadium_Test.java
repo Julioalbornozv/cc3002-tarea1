@@ -11,6 +11,7 @@ import cc3002_Tarea1.Frozen_City;
 import cc3002_Tarea1.Judge;
 import cc3002_Tarea1.Ledger;
 import cc3002_Tarea1.Pokemon_Leaf;
+import cc3002_Tarea1.Stadium;
 import cc3002_Tarea1.Trainer;
 
 public class Stadium_Test {
@@ -21,13 +22,14 @@ public class Stadium_Test {
 	private Ledger l = new Ledger();
 	private Attack a = new Attack("","",0,l);
 	private Frozen_City Fc = new Frozen_City();
+	private Stadium S = new Stadium(Fc);
 	
 	@Before
 	public void setUp() throws Exception {
 		p1 = new Pokemon_Leaf(0, "",100, a);
 		p2 = new Pokemon_Leaf(1, "",100, a);
 		e = new Energy_Leaf("");
-		t1 = new Trainer(p1, Fc, e, p2);
+		t1 = new Trainer(p1, S, e, p2);
 		t2 = new Trainer();
 		Monitor = new Judge(t1, t2);
 		t1.registerObserver(Monitor);
@@ -36,7 +38,7 @@ public class Stadium_Test {
 
 	@Test
 	public void frozen_city_test() {
-		t1.play(Fc);
+		t1.play(S);
 		t1.setCurrent(p1);
 		t1.play(e); //Equipa energia a pokemon
 		assertEquals(100-Fc.getMult()*10, p1.getHP()); // Pokemon was damaged due to stadium effects

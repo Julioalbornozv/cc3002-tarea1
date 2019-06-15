@@ -6,11 +6,11 @@ public class Judge implements IObserver {
 	private ITrainer current;
 	private ITrainer adversary;
 	private Random coin = new Random();
-	private boolean ene_played = false;
+	private boolean ene_played = false; //To be implemented
 	private boolean sup_played = false;
 	private boolean att_played = false;
 	private int last_coin = 0;
-	private Abs_Stadium stadium = new Empty_Stadium(); // NULL object
+	private Stadium stadium = new Stadium(new Null_Effect()); // NULL object
 	
 	public Judge(ITrainer player_1) { // Solo play (For testing purposes
 		this.current = player_1;
@@ -22,7 +22,7 @@ public class Judge implements IObserver {
 		}
 		
 	@Override
-	public void update_Stadium(Abs_Stadium st) { //Stadium update
+	public void update_Stadium(Stadium st) { //Stadium update
 		this.stadium = st;
 		}
 	
@@ -37,7 +37,7 @@ public class Judge implements IObserver {
 
 	@Override
 	public void notifyCard(ICard card) {
-		stadium.execute(this, card);
+		stadium.getEffect().executeOver(this, card);
 		card.beingPlayedBy(current);
 		}
 	

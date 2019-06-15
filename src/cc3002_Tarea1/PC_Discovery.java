@@ -12,4 +12,7 @@ public class PC_Discovery extends Effect {
 			curr.getDeck().draw(2);
 			}
 		}
+
+	@Override
+	public void executeOver(Judge m, ICard card) {}
 	}
