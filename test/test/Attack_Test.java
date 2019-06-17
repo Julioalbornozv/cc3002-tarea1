@@ -27,21 +27,19 @@ public class Attack_Test {
 		e1 = new Energy_Leaf("");
 		e2 = new Energy_Leaf("");
 		l = new Ledger(e1);
-		a = new Attack("","",20,Ec,l);
+		a = new Attack("","",2,Ec,l);
 		p1 = new Pokemon_Leaf(0,"",100,a);
 		p2 = new Pokemon_Leaf(1,"",100,a);
 		t1 = new Trainer(p1, e2);
 		t2 = new Trainer(p2);
 		Monitor = new Judge(t1,t2);
-		t1.registerObserver(Monitor);
-		t2.registerObserver(Monitor);
 		}
 
 	@Test
 	public void Electric_Shock_test() {
 		t1.setCurrent(p1);
 		t1.play(e1);
-		t1.select(a,t2);
+		t1.select(a);
 		
 		if (Monitor.seeCoin() == 1) {
 			assertEquals(80-Ec.getMultiplier()*10,p2.getHP());

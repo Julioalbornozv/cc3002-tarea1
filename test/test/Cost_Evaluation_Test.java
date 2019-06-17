@@ -30,9 +30,9 @@ public class Cost_Evaluation_Test {
 		Ledger l2 = new Ledger(e1s,e2s);
 		Ledger l3 = new Ledger(e1s,e3s);
 		
-		a1 = new Attack("1W","", 20, l1);
-		a2 = new Attack("2W","", 20, l2);
-		a3 = new Attack("1W-1E","", 20, l3);
+		a1 = new Attack("1W","", 2, l1);
+		a2 = new Attack("2W","", 2, l2);
+		a3 = new Attack("1W-1E","", 2, l3);
 		
 		p1 = new Pokemon_Leaf(0,"",100,a1,a2,a3);
 		p2 = new Pokemon_Leaf(1,"",100,a1,a2,a3);
@@ -44,8 +44,6 @@ public class Cost_Evaluation_Test {
 		t2.setCurrent(t2.getActive());
 		
 		Monitor = new Judge(t1,t2);
-		t1.registerObserver(Monitor);
-		t2.registerObserver(Monitor);
 		}
 
 	@Test
@@ -53,20 +51,25 @@ public class Cost_Evaluation_Test {
 		
 		t1.play(e1);
 		
-		t1.select(a1,t2); // True
-		t1.select(a2,t2); // False
-		t1.select(a3,t2); // False
+		t1.select(a1); // True
+		t2.pass();
+		t1.select(a2); // False
+		t2.pass();
+		t1.select(a3); // False
+		t2.pass();
 		
 		assertEquals(80, p2.getHP());
 		//---------------------------
 		t1.play(e3);
 		
-		t1.select(a2,t2); // False
-		t1.select(a3,t2); // True
+		t1.select(a2); // False
+		t2.pass();
+		t1.select(a3); // True
 		assertEquals(60, p2.getHP());
+		t2.pass();
 		//--------------------------
 		t1.play(e2);
-		t1.select(a2,t2); // True
+		t1.select(a2); // True
 		assertEquals(40, p2.getHP());
 		
 		}

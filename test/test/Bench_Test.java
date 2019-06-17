@@ -36,8 +36,6 @@ public class Bench_Test {
 		t2 = new Trainer(p2);
 		
 		Monitor = new Judge(t1,t2);
-		t1.registerObserver(Monitor);
-		t2.registerObserver(Monitor);
 		}
 
 	@Test
@@ -49,21 +47,28 @@ public class Bench_Test {
 		t1.play(p6);	// 4/5
 		t1.play(p7);	// Full rooster
 		t1.play(p8);	// Overflow, should not do anything
+		t1.pass();
 		
-		t2.select(nuke,t1);
+		t2.select(nuke);
 		assertEquals(p3, t1.getActive()); // p3 should take place of p2
 		
 		t1.play(p9);
+		t1.pass();
 		
-		t2.select(nuke,t1); // p3 out
-		t2.select(nuke,t1); // p4 out
-		t2.select(nuke,t1); // p5 out
-		t2.select(nuke,t1); // p6 out
-		t2.select(nuke,t1); // p7 out
+		t2.select(nuke); // p3 out
+		t1.pass();
+		t2.select(nuke); // p4 out
+		t1.pass();
+		t2.select(nuke); // p5 out
+		t1.pass();
+		t2.select(nuke); // p6 out
+		t1.pass();
+		t2.select(nuke); // p7 out
+		t1.pass();
 		
 		assertEquals(p9, t1.getActive()); // p9 active instead of p8
 		
-		t2.select(nuke, t1); // No active pokemons left
+		t2.select(nuke); // No active pokemons left
 		
 		assertEquals(null, t1.getActive());
 		}

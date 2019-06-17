@@ -16,6 +16,7 @@ public interface IPokemon extends ICard{
 	 */
 	public int getHP();
 	
+	public int getWound();
 	/**
 	 * Getter for pokemon id
 	 * @return Pokemon id

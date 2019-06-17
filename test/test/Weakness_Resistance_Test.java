@@ -8,6 +8,7 @@ import org.junit.Test;
 import cc3002_Tarea1.Attack;
 import cc3002_Tarea1.Ledger;
 import cc3002_Tarea1.IPokemon;
+import cc3002_Tarea1.Judge;
 import cc3002_Tarea1.Pokemon_Fight;
 import cc3002_Tarea1.Pokemon_Fire;
 import cc3002_Tarea1.Pokemon_Leaf;
@@ -19,12 +20,13 @@ import cc3002_Tarea1.Trainer;
 public class Weakness_Resistance_Test {
 	private IPokemon pL,pW,pF,pP,pFg,pT,pP2;
 	private Trainer t1, t2;
+	private Judge arbiter;
 	private Attack standard;
 	
 	@Before
 	public void setUp() throws Exception {
 		Ledger dud = new Ledger();
-		standard = new Attack("Standard","", 40, dud);
+		standard = new Attack("Standard","", 4, dud);
 		
 		pL = new Pokemon_Leaf(0,"",100,standard);
 		pW = new Pokemon_Water(0,"",100,standard);
@@ -33,15 +35,17 @@ public class Weakness_Resistance_Test {
 		pFg = new Pokemon_Fight(0,"",100,standard);
 		pT = new Pokemon_Thunder(0,"",100,standard);
 		pP2 = new Pokemon_Psi(0,"",100,standard);
+		
 		}
 
 	@Test
 	public void Leaf_vs_Water_test() {
 		t1 = new Trainer(pL);
 		t2 = new Trainer(pW);
+		arbiter = new Judge(t1,t2);
 		
-		t1.select(standard, t2);	// Weak
-		t2.select(standard, t1);	// Resist
+		t1.select(standard);	// Weak
+		t2.select(standard);	// Resist
 		
 		assertEquals(20, pW.getHP());
 		assertEquals(90, pL.getHP());
@@ -51,9 +55,10 @@ public class Weakness_Resistance_Test {
 	public void Leaf_vs_Fire_test() {
 		t1 = new Trainer(pL);
 		t2 = new Trainer(pF);
+		arbiter = new Judge(t1,t2);
 		
-		t1.select(standard, t2); 	// No modifier
-		t2.select(standard, t1);	// Weak
+		t1.select(standard); 	// No modifier
+		t2.select(standard);	// Weak
 		
 		assertEquals(20, pL.getHP());
 		assertEquals(60,pF.getHP());
@@ -63,9 +68,10 @@ public class Weakness_Resistance_Test {
 	public void Fire_vs_Water_test() {
 		t1 = new Trainer(pF);
 		t2 = new Trainer(pW);
+		arbiter = new Judge(t1,t2);
 		
-		t1.select(standard, t2); 	// No modifier
-		t2.select(standard, t1);	// Weak
+		t1.select(standard); 	// No modifier
+		t2.select(standard);	// Weak
 		
 		assertEquals(20, pF.getHP());
 		assertEquals(60, pW.getHP());
@@ -76,9 +82,10 @@ public class Weakness_Resistance_Test {
 	public void Water_vs_Thunder_test() {
 		t1 = new Trainer(pW);
 		t2 = new Trainer(pT);
+		arbiter = new Judge(t1,t2);
 		
-		t1.select(standard, t2); 	// No modifier
-		t2.select(standard, t1);	// Weak
+		t1.select(standard); 	// No modifier
+		t2.select(standard);	// Weak
 		
 		assertEquals(20, pW.getHP());
 		assertEquals(60, pT.getHP());
@@ -88,9 +95,10 @@ public class Weakness_Resistance_Test {
 	public void Water_vs_Fight_test() {
 		t1 = new Trainer(pW);
 		t2 = new Trainer(pFg);
+		arbiter = new Judge(t1,t2);
 		
-		t1.select(standard, t2); 	// No modifier
-		t2.select(standard, t1);	// Resist
+		t1.select(standard); 	// No modifier
+		t2.select(standard);	// Resist
 		
 		assertEquals(90, pW.getHP());
 		assertEquals(60, pFg.getHP());
@@ -100,9 +108,10 @@ public class Weakness_Resistance_Test {
 	public void Fight_vs_Leaf_test() {
 		t1 = new Trainer(pFg);
 		t2 = new Trainer(pL);
+		arbiter = new Judge(t1,t2);
 		
-		t2.select(standard, t1);	// Weak
-		t1.select(standard, t2); 	// No modifier
+		t2.select(standard);	// Weak
+		t1.select(standard); 	// No modifier
 		
 		assertEquals(20, pFg.getHP());
 		assertEquals(60, pL.getHP());
@@ -112,9 +121,10 @@ public class Weakness_Resistance_Test {
 	public void Fight_vs_Psi_test() {
 		t1 = new Trainer(pFg);
 		t2 = new Trainer(pP);
+		arbiter = new Judge(t1,t2);
 		
-		t1.select(standard, t2);	// Resist
-		t2.select(standard, t1);	// Weak
+		t1.select(standard);	// Resist
+		t2.select(standard);	// Weak
 		
 		assertEquals(20, pFg.getHP());
 		assertEquals(90, pP.getHP());
@@ -124,9 +134,10 @@ public class Weakness_Resistance_Test {
 	public void Fight_vs_Thunder_test() {
 		t1 = new Trainer(pFg);
 		t2 = new Trainer(pT);
+		arbiter = new Judge(t1,t2);
 		
-		t1.select(standard, t2);	// Weak
-		t2.select(standard, t1); 	// No modifier
+		t1.select(standard);	// Weak
+		t2.select(standard); 	// No modifier
 		
 		assertEquals(60, pFg.getHP());
 		assertEquals(20, pT.getHP());
@@ -136,8 +147,9 @@ public class Weakness_Resistance_Test {
 	public void Psi_vs_Psi_test() {
 		t1 = new Trainer(pP);
 		t2 = new Trainer(pP2);
+		arbiter = new Judge(t1,t2);
 		
-		t1.select(standard, t2);	// Weak
+		t1.select(standard);	// Weak
 		
 		assertEquals(20, pP2.getHP());
 		}
@@ -146,8 +158,9 @@ public class Weakness_Resistance_Test {
 	public void Psi_vs_Fire_test() {
 		t1 = new Trainer(pP);
 		t2 = new Trainer(pF);
+		arbiter = new Judge(t1,t2);
 		
-		t1.select(standard, t2);	// Weak
+		t1.select(standard);	// Weak
 		
 		assertEquals(60, pF.getHP());
 		}

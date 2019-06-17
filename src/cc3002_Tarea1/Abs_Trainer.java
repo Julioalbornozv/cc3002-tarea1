@@ -79,7 +79,7 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 		}
 	
 	@Override
-	public void select(IAbility skill, Trainer opponent) {
+	public void select(IAbility skill) {
 		skill.notify(judge);
 		}
 		
@@ -126,5 +126,10 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 	@Override
 	public void registerObserver(IObserver m) {
 		this.judge = m;
+		}
+	
+	@Override
+	public void pass() {
+		judge.notifySkip();
 		}
 	}

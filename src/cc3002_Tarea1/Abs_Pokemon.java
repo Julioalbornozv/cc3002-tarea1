@@ -13,6 +13,7 @@ import java.util.List;
 public abstract class Abs_Pokemon implements IPokemon{
 	private int id;
 	private int hp;
+	private int wounds = 0;
 	private String name;
 	private Item modifier = null;
 	private List<IAbility> skillset = new LinkedList<>();
@@ -36,11 +37,16 @@ public abstract class Abs_Pokemon implements IPokemon{
 				skillset.add(sk);
 				}
 			}
-		}	
+		}
 	
 	@Override
 	public int getHP() {
-		return hp;
+		return hp - wounds*10;
+		}
+	
+	@Override
+	public int getWound() {
+		return wounds;
 		}
 	
 	@Override
@@ -88,7 +94,7 @@ public abstract class Abs_Pokemon implements IPokemon{
 	 */
 	@Override
 	public void normalDmg(int dmg) {
-		this.hp -= dmg;
+		this.wounds += dmg;
 		}
 
 	/**
@@ -97,7 +103,7 @@ public abstract class Abs_Pokemon implements IPokemon{
 	 * @param dmg Base damage
 	 */
 	protected void weaknessDmg(int dmg) {
-		this.hp -= dmg*2;
+		this.wounds += dmg*2;
 		}
 	
 	/**
@@ -106,7 +112,7 @@ public abstract class Abs_Pokemon implements IPokemon{
 	 * @param dmg Base damage
 	 */
 	protected void resistDmg(int dmg) {
-		this.hp -= (dmg-30);
+		this.wounds += (dmg-3);
 		}
 	
 	@Override

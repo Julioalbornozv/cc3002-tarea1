@@ -3,22 +3,24 @@ package cc3002_Tarea1;
 import java.util.Random;
 
 public class Judge implements IObserver {
-	private ITrainer current;
-	private ITrainer adversary;
+	private Abs_Trainer current;
+	private Abs_Trainer adversary;
 	private Random coin = new Random();
 	private boolean ene_played = false; //To be implemented
 	private boolean sup_played = false;
-	private boolean att_played = false;
 	private int last_coin = 0;
 	private Stadium stadium = new Stadium(new Null_Effect()); // NULL object
 	
-	public Judge(ITrainer player_1) { // Solo play (For testing purposes
+	public Judge(Abs_Trainer player_1) { // Solo play (For testing purposes
 		this.current = player_1;
+		this.current.registerObserver(this);
 		}
 	
-	public Judge(ITrainer player_1, ITrainer player_2){
+	public Judge(Abs_Trainer player_1, Abs_Trainer player_2){
 		this.current = player_1;
 		this.adversary = player_2;
+		this.current.registerObserver(this);
+		this.adversary.registerObserver(this);
 		}
 		
 	@Override
@@ -53,10 +55,10 @@ public class Judge implements IObserver {
 		swap();
 		}
 	
-	public ITrainer getTrainer() {
+	public Abs_Trainer getTrainer() {
 		return this.current;
 		}
-	public ITrainer getAdversary() {
+	public Abs_Trainer getAdversary() {
 		return this.adversary;
 		}
 
@@ -65,9 +67,14 @@ public class Judge implements IObserver {
 		}
 	
 	public void swap() {
-		ITrainer aux = this.current;
+		Abs_Trainer aux = this.current;
 		this.current = this.adversary;
 		this.adversary = aux;
+		}
+	
+	@Override
+	public void notifySkip() {
+		swap();
 		}
 	
 	}

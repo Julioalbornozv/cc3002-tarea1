@@ -16,7 +16,7 @@ public class Frozen_City extends Effect {
 	@Override
 	public void visitEnergy(IEnergy e) {
 		IPokemon pk = monitor.getTrainer().getCurrent();
-		pk.normalDmg(10*multiplier);
+		pk.normalDmg(multiplier);
 		}
 	
 	public int getMult() {

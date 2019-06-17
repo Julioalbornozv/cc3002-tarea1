@@ -6,7 +6,9 @@ public class Heal extends Effect{
 	public void execute(Judge m) {
 		if (m.coinflip() == 0) {
 			IPokemon pk = m.getTrainer().getCurrent();
-			pk.normalDmg(-10);
+			if (pk.getWound() > 0) {
+				pk.normalDmg(-1);
+				}
 			}
 		}
 

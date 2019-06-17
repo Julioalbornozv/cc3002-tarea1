@@ -32,8 +32,6 @@ public class Stadium_Test {
 		t1 = new Trainer(p1, S, e, p2);
 		t2 = new Trainer();
 		Monitor = new Judge(t1, t2);
-		t1.registerObserver(Monitor);
-		t2.registerObserver(Monitor);
 		}
 
 	@Test

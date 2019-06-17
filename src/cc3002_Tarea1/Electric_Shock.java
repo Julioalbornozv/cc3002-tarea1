@@ -6,7 +6,7 @@ public class Electric_Shock extends Effect {
 	@Override
 	public void execute(Judge m) {
 		if (m.coinflip() == 1) {
-			m.getAdversary().getActive().normalDmg(multiplier*10);
+			m.getAdversary().getActive().normalDmg(multiplier);
 			}
 
 		}

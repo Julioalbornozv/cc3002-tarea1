@@ -6,7 +6,7 @@ package cc3002_Tarea1;
  * @author Julio Albornoz Valencia
  */
 public class Attack extends Abs_Ability{
-	private int dmg;
+	private int dmg; //Damage represented as x counters (Ej: 3 <=> 30 dmg
 	/**
 	 * Creates new standard attack
 	 * 

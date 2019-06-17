@@ -36,7 +36,6 @@ public class Support_Test {
 		t1 = new Trainer();
 		t1.getDeck().add(e1,e2,e3,e4);
 		monitor = new Judge(t1);
-		t1.registerObserver(monitor);
 		}
 
 	@Test

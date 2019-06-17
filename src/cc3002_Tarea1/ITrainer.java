@@ -24,9 +24,8 @@ public interface ITrainer {
 	 * Uses an attack against the active pokemon of the enemy player
 	 * 
 	 * @param a Attack to be used
-	 * @param opp Opponent with an active pokemon
 	 */
-	public void select(IAbility skill, Trainer opp);
+	public void select(IAbility skill);
 	
 	
 	/**
@@ -54,6 +53,7 @@ public interface ITrainer {
 	 * Adds pokemon to the bench
 	 * @param p
 	 */
+	
 	public void addToBench(IPokemon p);
 
 	public void setCurrent(IPokemon p);
@@ -67,5 +67,7 @@ public interface ITrainer {
 	Deck getDeck();
 
 	Deck getCemetery();
+	
+	public void pass();
 
 	}

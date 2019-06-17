@@ -6,4 +6,5 @@ public interface IObserver {
 	void notifySelection(IAbility sk);
 	void instant_effect(Effect effect);
 	void notifyAttack(Attack attack);
+	void notifySkip();
 	}
