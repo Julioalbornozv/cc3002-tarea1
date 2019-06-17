@@ -5,6 +5,10 @@ public class Item implements ITrainerCard{
 	private String description;
 	private Effect eff;
 	
+	public Item(Effect e) {
+		this.eff = e;
+		};
+		
 	@Override
 	public String getName() {
 		return name;
@@ -17,9 +21,10 @@ public class Item implements ITrainerCard{
 
 	@Override
 	public void beingPlayedBy(ITrainer player) {
-		// TODO Auto-generated method stub
-		
-	}
+		player.getObs().instant_effect(this.eff); //TODO: Separate between Equipable items and instantaneous Items
+		player.discard(this);
+		}
+	
 
 	@Override
 	public void accept(Visitor modifier) {
