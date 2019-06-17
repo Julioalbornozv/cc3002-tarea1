@@ -7,6 +7,11 @@ public class BasicFightPokemon extends Abs_FightPokemon implements IBasicPokemon
 		}
 
 	@Override
+	public void beingPlayedBy(ITrainer player){
+		player.addToBench(this);
+		}
+	
+	@Override
 	public void accept(Visitor m) {
 		m.visitBasicPokemon();
 		}

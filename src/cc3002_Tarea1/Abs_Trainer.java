@@ -17,7 +17,7 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 	
 	private IPokemon active;
 	private IPokemon selected;
-	private Queue<IPokemon> reserve = new LinkedList<>();
+	private LinkedList<IPokemon> reserve = new LinkedList<>();
 	private Queue<ICard> prize = new LinkedList<>();
 	private List<ICard> hand = new LinkedList<>();
 	private Deck cemetery = new Deck();
@@ -99,6 +99,10 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 		}
 	
 	@Override 
+	public IPokemon[] getBench() {
+		return reserve.toArray(new IPokemon[reserve.size()]);
+		}
+	@Override 
 	public void setCurrent(IPokemon p) {
 		this.selected = p;
 		}
@@ -131,5 +135,20 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 	@Override
 	public void pass() {
 		judge.notifySkip();
+		}
+	
+	@Override
+	public void replace(IPokemon target, IPokemon ev) {
+		if (target.equals(this.active)) {
+			this.active = ev;
+			this.cemetery.add(target);
+			}
+		else {
+			if (reserve.contains(target)){
+				int index = reserve.indexOf(target);
+				reserve.set(index, ev);
+				}
+			this.cemetery.add(target);
+			}
 		}
 	}

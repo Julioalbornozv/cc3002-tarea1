@@ -82,4 +82,6 @@ public interface IPokemon extends ICard{
 	public void associateItem(Item i);
 
 	public void normalDmg(int i);
+
+	Ledger getLedger();
 }

@@ -70,4 +70,8 @@ public interface ITrainer {
 	
 	public void pass();
 
+	IPokemon[] getBench();
+
+	void replace(IPokemon target, IPokemon ev);
+
 	}

@@ -8,6 +8,16 @@ public class Stage1_Fight_Pokemon extends Abs_FightPokemon implements IStage1Pok
 		this.prevol = pre;
 		}
 	
+	/*
+	 * For this case the player must choose which basic pokemon it wishes to evolve
+	 */
+	@Override
+	public void beingPlayedBy(ITrainer player){
+		IPokemon prepk = player.getCurrent();
+		prepk.getLedger().Transfer(this.power);
+		player.replace(prepk, this);
+		}
+
 	public int getpreID() {
 		return prevol;
 		}

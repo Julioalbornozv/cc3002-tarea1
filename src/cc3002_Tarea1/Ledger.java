@@ -129,6 +129,10 @@ public class Ledger {
 		return true;
 		}
 	
+	public void Transfer(Ledger target) {
+		target.count.putAll(this.count);
+		}
+	
 	/**
 	 * Determines if a Ledger is the same as another object
 	 * @param Object to be compared

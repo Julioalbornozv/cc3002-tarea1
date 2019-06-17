@@ -54,6 +54,10 @@ public abstract class Abs_Pokemon implements IPokemon{
 		return id;
 		}
 	
+	@Override
+	public Ledger getLedger() {
+		return power;
+		}	
 	
 	@Override
 	public List<IAbility> getSkillset(){
@@ -73,11 +77,13 @@ public abstract class Abs_Pokemon implements IPokemon{
 	 */
 	protected abstract void fight (Attack skill, IPokemon enemy);
 	
+	public abstract void beingPlayedBy(ITrainer player);
+	/*
 	@Override
 	public void beingPlayedBy(ITrainer player){
 		player.addToBench(this);
 		}
-	
+	*/
 	@Override
 	public void attack(Attack skill, IPokemon enemy) {
 		if (power.evalCost(skill)) {

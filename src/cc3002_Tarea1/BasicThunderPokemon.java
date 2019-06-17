@@ -7,6 +7,11 @@ public class BasicThunderPokemon extends Abs_ThunderPokemon implements IBasicPok
 		}
 
 	@Override
+	public void beingPlayedBy(ITrainer player){
+		player.addToBench(this);
+		}
+	
+	@Override
 	public void accept(Visitor m) {
 		m.visitBasicPokemon();
 		}

@@ -8,6 +8,13 @@ public class Stage2_Leaf_Pokemon extends Abs_LeafPokemon implements IBasicPokemo
 		this.prevol = pre;
 		}
 	
+	@Override
+	public void beingPlayedBy(ITrainer player){
+		IPokemon prepk = player.getCurrent();
+		prepk.getLedger().Transfer(this.power);
+		player.replace(prepk, this);
+		}
+	
 	public int getpreID() {
 		return prevol;
 		}

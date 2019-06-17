@@ -8,6 +8,13 @@ public class Stage2_Water_Pokemon extends Abs_WaterPokemon implements IBasicPoke
 		this.prevol = pre;
 		}
 	
+	@Override
+	public void beingPlayedBy(ITrainer player){
+		IPokemon prepk = player.getCurrent();
+		prepk.getLedger().Transfer(this.power);
+		player.replace(prepk, this);
+		}
+	
 	public int getpreID() {
 		return prevol;
 		}

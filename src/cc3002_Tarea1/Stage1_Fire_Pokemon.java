@@ -8,6 +8,13 @@ public class Stage1_Fire_Pokemon extends Abs_FirePokemon implements IStage1Pokem
 		this.prevol = pre;
 		}
 	
+	@Override
+	public void beingPlayedBy(ITrainer player){
+		IPokemon prepk = player.getCurrent();
+		prepk.getLedger().Transfer(this.power);
+		player.replace(prepk, this);
+		}
+	
 	public int getpreID() {
 		return prevol;
 		}
