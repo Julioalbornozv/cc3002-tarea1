@@ -20,7 +20,7 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 	private Queue<IPokemon> reserve = new LinkedList<>();
 	private Queue<ICard> prize = new LinkedList<>();
 	private List<ICard> hand = new LinkedList<>();
-	private Stack<ICard> cemetery = new Stack<>();
+	private Deck cemetery = new Deck();
 	private Deck deck = new Deck();
 	private IObserver judge;
 	/** 
@@ -79,15 +79,13 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 		}
 	
 	@Override
-	public void select(Attack att, Trainer opponent) {
-		IPokemon enemy = opponent.getActive();
-		this.active.attack(att, enemy);
-		opponent.checkActive();
+	public void select(IAbility skill, Trainer opponent) {
+		skill.notify(judge);
 		}
 		
 	@Override
 	public void discard(ICard card) {
-		cemetery.push(card);
+		cemetery.add(card);
 		}
 	
 	@Override
@@ -116,7 +114,7 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 		}
 	
 	@Override
-	public Stack<ICard> getCemetery() {
+	public Deck getCemetery() {
 		return cemetery;
 		}
 	

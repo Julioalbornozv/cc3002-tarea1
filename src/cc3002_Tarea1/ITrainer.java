@@ -26,7 +26,7 @@ public interface ITrainer {
 	 * @param a Attack to be used
 	 * @param opp Opponent with an active pokemon
 	 */
-	public void select(Attack a, Trainer opp);
+	public void select(IAbility skill, Trainer opp);
 	
 	
 	/**
@@ -66,6 +66,6 @@ public interface ITrainer {
 
 	Deck getDeck();
 
-	Stack<ICard> getCemetery();
+	Deck getCemetery();
 
 	}

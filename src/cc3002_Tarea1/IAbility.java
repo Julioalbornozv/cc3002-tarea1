@@ -9,6 +9,7 @@ package cc3002_Tarea1;
  */
 public interface IAbility {
 	
+	public void notify(IObserver m);
 	/**
 	 * Getter for the cost 
 	 * @return Ledger Object containing the cost of the ability
@@ -26,4 +27,5 @@ public interface IAbility {
 	 * @return Name of the skill
 	 */
 	public String getName();
+	Effect getEffect();
 }

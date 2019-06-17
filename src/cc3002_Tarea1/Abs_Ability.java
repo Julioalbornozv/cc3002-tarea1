@@ -8,48 +8,45 @@ package cc3002_Tarea1;
  * @author Julio Albornoz Valencia
  */
 
-public abstract class Abs_Attack implements IAbility {
+public abstract class Abs_Ability implements IAbility {
 	private String name;
 	private String description;
 	private Ledger cost;
-	private int dmg;
+	private Effect effect = new Null_Effect();
 	
 	/**
-	 * Creates a new attack
+	 * Creates a new ability (based on an existing Ledger)
 	 * 
-	 * @param name Attack name
-	 * @param desc Attack description
-	 * @param dmg  Attack base damage
-	 * @param cost Attack cost (as Ledger Object)
+	 * @param name Ability name
+	 * @param desc Ability description
+	 * @param cost Ability cost (as Ledger Object)
 	 */
-	protected Abs_Attack(String name, String desc,  int dmg, Ledger cost) {
+	protected Abs_Ability(String name, String desc, Ledger cost) {
 		this.name = name;
 		this.description = desc;
 		this.cost = cost;
-		this.dmg = dmg;
 		}
 	
+	protected Abs_Ability(String name, String desc, Effect eff, Ledger cost) {
+		this(name,desc,cost);
+		this.effect = eff;
+		}
 	/**
-	 * Creates a new attack
+	 * Creates a new ability
 	 * 
-	 * @param name Attack name
-	 * @param desc Attack description
-	 * @param dmg  Attack base damage
-	 * @param cards Energy cards required by the attack
+	 * @param name Ability name
+	 * @param desc Ability description
+	 * @param cards Energy cards required by the ability
 	 */
-	protected Abs_Attack(String name, String desc, int dmg, IEnergy ... cards) {
+	protected Abs_Ability(String name, String desc, IEnergy ... cards) {
 		this.name = name;
 		this.description = desc;
 		this.cost = new Ledger(cards);
-		this.dmg = dmg;
 		}
 	
-	/**
-	 * Getter for the attack base damage
-	 * @return Base damage
-	 */
-	public int getDmg() {
-		return dmg;
+	protected Abs_Ability(String name, String desc, Effect eff, IEnergy ... cards) {
+		this(name,desc,cards);
+		this.effect = eff;
 		}
 	
 	@Override
@@ -67,6 +64,10 @@ public abstract class Abs_Attack implements IAbility {
 		return cost;
 		}
 	
+	@Override
+	public Effect getEffect() {
+		return effect;
+		}
 	/**
 	 * Determines if an attack is the same as another object
 	 * @param Object to be compared
@@ -76,7 +77,6 @@ public abstract class Abs_Attack implements IAbility {
 	public boolean equals(Object obj) {
 		return obj instanceof IAbility 
 			   && ((Attack)obj).getName().equals(this.getName())
-			   && ((Attack)obj).getDmg() == this.getDmg() 
 			   && ((Attack)obj).getCost().equals(this.getCost());
 		}
 	}

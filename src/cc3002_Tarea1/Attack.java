@@ -5,7 +5,8 @@ package cc3002_Tarea1;
  * 
  * @author Julio Albornoz Valencia
  */
-public class Attack extends Abs_Attack{
+public class Attack extends Abs_Ability{
+	private int dmg;
 	/**
 	 * Creates new standard attack
 	 * 
@@ -15,9 +16,14 @@ public class Attack extends Abs_Attack{
 	 * @param cost Attack cost (As Ledger object)
 	 */
 	public Attack(String name, String desc, int dmg, Ledger cost) {
-		super(name, desc, dmg, cost);
+		super(name, desc, cost);
+		this.dmg = dmg;
 		}
 	
+	public Attack(String name, String desc, int dmg, Effect eff, Ledger cost) {
+		super(name, desc, eff, cost);
+		this.dmg = dmg;
+		}
 	/**
 	 * Creates new standard attack
 	 * 
@@ -27,7 +33,27 @@ public class Attack extends Abs_Attack{
 	 * @param cost Attack cost (As Energy cards)
 	 */
 	public Attack(String name, String desc, int dmg, IEnergy ... cards) {
-		super(name, desc, dmg, cards);
+		super(name, desc, cards);
+		this.dmg = dmg;
+		}
+	
+	public Attack(String name, String desc, int dmg, Effect eff, IEnergy ... cards) {
+		super(name, desc, eff, cards);
+		this.dmg = dmg;
+		}
+	
+	@Override
+	public void notify(IObserver m) {
+		m.notifyAttack(this);
+		}
+	
+	/**
+	 * Getter for the attack base damage
+	 * @return Base damage
+	 */
+	
+	public int getDmg() {
+		return dmg;
 		}
 	
 	/**
@@ -36,6 +62,7 @@ public class Attack extends Abs_Attack{
 	 * @return boolean
 	 */
 	public boolean equals(Object obj) {
-		return obj instanceof Attack && super.equals(obj);
+		return obj instanceof Attack && super.equals(obj)
+				&& ((Attack)obj).getDmg() == this.getDmg();
 		}
 }

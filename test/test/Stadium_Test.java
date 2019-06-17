@@ -40,7 +40,7 @@ public class Stadium_Test {
 	public void frozen_city_test() {
 		t1.play(S);
 		t1.setCurrent(p1);
-		t1.play(e); //Equipa energia a pokemon
+		t1.play(e); //Gives energy to pokemon
 		assertEquals(100-Fc.getMult()*10, p1.getHP()); // Pokemon was damaged due to stadium effects
 		
 		t1.play(p2);

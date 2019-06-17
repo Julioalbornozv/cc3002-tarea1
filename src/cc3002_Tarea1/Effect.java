@@ -7,11 +7,8 @@ public abstract class Effect implements Visitor{
 	public abstract void executeOver(Judge m, ICard card);
 	
 	@Override
-	public void visitEnergy(IEnergy e) {
-		// TODO Auto-generated method stub
-		
-		}
-
+	public void visitEnergy(IEnergy e) {}
+	
 	@Override
 	public void visitBasicPokemon() {
 		// TODO Auto-generated method stub
@@ -31,15 +28,14 @@ public abstract class Effect implements Visitor{
 		}
 
 	@Override
-	public void visitStadium(Stadium t) {
-		// TODO Auto-generated method stub
-		
-		}
+	public void visitStadium(Stadium t) {}
 
 	@Override
-	public void visitSupport(Support s) {
+	public void visitSupport(Support s) {}
+
+	@Override
+	public void visitItem(Item I) {
 		// TODO Auto-generated method stub
 		
 		}
-
 	}

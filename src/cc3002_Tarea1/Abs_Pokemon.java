@@ -141,9 +141,10 @@ public abstract class Abs_Pokemon implements IPokemon{
 	
 	@Override
 	public void associateItem(Item it) {
-		this.modifier = it;
+		if (this.modifier != null) {
+			this.modifier = it;
+			}
 		}
-	
 
 	@Override 
 	public void accept(Visitor m){ 
@@ -151,7 +152,7 @@ public abstract class Abs_Pokemon implements IPokemon{
 		}
 	/**
 	 * Checks if this card represents the same pokemon as another
-	 * 
+	 * 	
 	 * @param obj Object to be compared
 	 * @return boolean
 	 */

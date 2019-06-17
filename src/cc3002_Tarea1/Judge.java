@@ -41,8 +41,17 @@ public class Judge implements IObserver {
 		card.beingPlayedBy(current);
 		}
 	
-	public void notifySelection() {}
-	public void notifyAttack() {}
+	@Override
+	public void notifySelection(IAbility skill) {
+		skill.getEffect().execute(this);
+		}
+	
+	public void notifyAttack(Attack att) {
+		att.getEffect().execute(this);
+		current.getActive().attack(att, adversary.getActive());
+		adversary.checkActive();
+		swap();
+		}
 	
 	public ITrainer getTrainer() {
 		return this.current;
@@ -54,5 +63,12 @@ public class Judge implements IObserver {
 	public int seeCoin() {
 		return last_coin;
 		}
+	
+	public void swap() {
+		ITrainer aux = this.current;
+		this.current = this.adversary;
+		this.adversary = aux;
+		}
+	
 	}
 	

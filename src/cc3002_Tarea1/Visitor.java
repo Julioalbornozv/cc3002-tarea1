@@ -8,4 +8,5 @@ public interface Visitor {
 	public void visitS2_Pokemon();
 	public void visitStadium(Stadium t);
 	public void visitSupport(Support s);
+	public void visitItem(Item item);
 	}
