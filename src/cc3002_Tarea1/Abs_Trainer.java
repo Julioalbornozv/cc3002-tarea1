@@ -72,9 +72,13 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 	
 
 	@Override
-	public void checkActive() {
+	public int checkActive() {
 		if (active.getHP() <= 0) {
 			setActive();
+			return 0; // Operation succesfull
+			}
+		else {
+			return -1; //No defeat
 			}
 		}
 	
@@ -150,5 +154,9 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 				}
 			this.cemetery.add(target);
 			}
+		}
+
+	public Queue<ICard> getPrize() {
+		return prize;
 		}
 	}

@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import cc3002_Tarea1.Attack;
 import cc3002_Tarea1.BasicLeafPokemon;
-import cc3002_Tarea1.Energy_Leaf;
 import cc3002_Tarea1.IPokemon;
 import cc3002_Tarea1.Item;
 import cc3002_Tarea1.Judge;

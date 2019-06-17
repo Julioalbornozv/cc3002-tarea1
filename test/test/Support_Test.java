@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import cc3002_Tarea1.Deck;
 import cc3002_Tarea1.Effect;
+import cc3002_Tarea1.Energy_Fight;
 import cc3002_Tarea1.Energy_Fire;
 import cc3002_Tarea1.Energy_Leaf;
 import cc3002_Tarea1.Energy_Psi;
@@ -19,6 +20,7 @@ import cc3002_Tarea1.Trainer;
 public class Support_Test {
 	private Trainer t1;
 	private Judge monitor;
+	private Energy_Fight dud;
 	private Energy_Leaf e1;
 	private Energy_Fire e2;
 	private Energy_Water e3;
@@ -34,7 +36,7 @@ public class Support_Test {
 		e3 = new Energy_Water("");
 		e4 = new Energy_Psi("");
 		t1 = new Trainer();
-		t1.getDeck().add(e1,e2,e3,e4);
+		t1.getDeck().add(e1,e2,e3,e4,dud);
 		monitor = new Judge(t1);
 		}
 

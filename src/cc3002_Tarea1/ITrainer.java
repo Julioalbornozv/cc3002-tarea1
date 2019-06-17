@@ -33,7 +33,7 @@ public interface ITrainer {
 	 * by a trainer after an attack to message the opponent.
 	 * Acts as a proxy to private method setActive().
 	 */
-	public void checkActive();
+	public int checkActive();
 	
 	/**
 	 * Getter for the active pokemon

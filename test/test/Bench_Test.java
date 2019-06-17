@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import cc3002_Tarea1.Attack;
 import cc3002_Tarea1.BasicFightPokemon;
+import cc3002_Tarea1.Energy_Leaf;
 import cc3002_Tarea1.IPokemon;
 import cc3002_Tarea1.Judge;
 import cc3002_Tarea1.Ledger;
@@ -14,6 +15,8 @@ import cc3002_Tarea1.Trainer;
 
 public class Bench_Test {
 	private IPokemon p1,p2,p3,p4,p5,p6,p7,p8,p9;
+	private Energy_Leaf e = new Energy_Leaf("");
+	private Ledger l = new Ledger(e);
 	private Trainer t1, t2;
 	private Judge Monitor;
 	private Attack nuke;
@@ -40,7 +43,7 @@ public class Bench_Test {
 		}
 
 	@Test
-	public void test() {
+	public void overflow_test() {
 		
 		t1.play(p3);	// 1/5
 		t1.play(p4);	// 2/5
@@ -72,5 +75,12 @@ public class Bench_Test {
 		t2.select(nuke); // No active pokemons left
 		
 		assertEquals(null, t1.getActive());
+		}
+	
+	public void energy_test() {
+		t1.play(p3);
+		t1.setCurrent(p3);
+		t1.play(e);
+		assertEquals(l, p3.getLedger());
 		}
 	}	

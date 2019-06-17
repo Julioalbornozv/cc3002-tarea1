@@ -13,8 +13,10 @@ public abstract class Abs_Energy implements IEnergy{
 
 	@Override 
 	public void beingPlayedBy(ITrainer player) {
-		IPokemon current = player.getCurrent(); 
-		current.associate(this);
+		if (player.getObs().notifyEnergy() == 0) {
+			IPokemon current = player.getCurrent(); 
+			current.associate(this);
+			}
 		}
 	
 	@Override 

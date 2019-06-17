@@ -7,4 +7,5 @@ public interface IObserver {
 	void instant_effect(Effect effect);
 	void notifyAttack(Attack attack);
 	void notifySkip();
+	int notifyEnergy();
 	}
