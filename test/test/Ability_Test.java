@@ -6,16 +6,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cc3002_Tarea1.Attack;
+import cc3002_Tarea1.BasicLeafPokemon;
 import cc3002_Tarea1.Energy_Leaf;
 import cc3002_Tarea1.Heal;
+import cc3002_Tarea1.IPokemon;
 import cc3002_Tarea1.Judge;
 import cc3002_Tarea1.Ledger;
-import cc3002_Tarea1.Pokemon_Leaf;
 import cc3002_Tarea1.Trainer;
 
 public class Ability_Test {
 	private Trainer t1, t2;
-	private Pokemon_Leaf p1, p2;
+	private IPokemon p1, p2;
 	private Energy_Leaf e1, e2, e3;
 	private Judge Monitor;
 	private Ledger l;
@@ -29,15 +30,15 @@ public class Ability_Test {
 		e3 = new Energy_Leaf("");
 		l = new Ledger(e1);
 		a = new Attack("","",2,H,l);
-		p1 = new Pokemon_Leaf(0,"",100,a);
-		p2 = new Pokemon_Leaf(1,"",100,a);
+		p1 = new BasicLeafPokemon(0,"",100,a);
+		p2 = new BasicLeafPokemon(1,"",100,a);
 		t1 = new Trainer(p1, e2);
 		t2 = new Trainer(p2, e3);
 		Monitor = new Judge(t2,t1);
 		}
 
 	@Test
-	public void Electric_Shock_test() {
+	public void Heal_test() {
 		t2.setCurrent(p2);
 		t2.play(e3);
 		t1.select(a);
@@ -47,8 +48,11 @@ public class Ability_Test {
 		t1.play(e2);
 		t1.select(a);
 		
-		assertEquals(90, p1.getHP()); // Removes only one counter
-			
+		if (Monitor.seeCoin() == 0) {
+			assertEquals(90, p1.getHP()); // Removes only one counter
+			}
+		else {
+			assertEquals(80,p1.getHP());
+			}
 		}
-
-}
+	}

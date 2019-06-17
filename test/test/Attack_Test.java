@@ -6,16 +6,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cc3002_Tarea1.Attack;
+import cc3002_Tarea1.BasicLeafPokemon;
 import cc3002_Tarea1.Electric_Shock;
 import cc3002_Tarea1.Energy_Leaf;
+import cc3002_Tarea1.IPokemon;
 import cc3002_Tarea1.Judge;
 import cc3002_Tarea1.Ledger;
-import cc3002_Tarea1.Pokemon_Leaf;
 import cc3002_Tarea1.Trainer;
 
 public class Attack_Test {
 	private Trainer t1, t2;
-	private Pokemon_Leaf p1, p2;
+	private IPokemon p1, p2;
 	private Energy_Leaf e1, e2;
 	private Judge Monitor;
 	private Ledger l;
@@ -28,8 +29,8 @@ public class Attack_Test {
 		e2 = new Energy_Leaf("");
 		l = new Ledger(e1);
 		a = new Attack("","",2,Ec,l);
-		p1 = new Pokemon_Leaf(0,"",100,a);
-		p2 = new Pokemon_Leaf(1,"",100,a);
+		p1 = new BasicLeafPokemon(0,"",100,a);
+		p2 = new BasicLeafPokemon(1,"",100,a);
 		t1 = new Trainer(p1, e2);
 		t2 = new Trainer(p2);
 		Monitor = new Judge(t1,t2);

@@ -6,17 +6,18 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cc3002_Tarea1.Attack;
+import cc3002_Tarea1.BasicLeafPokemon;
 import cc3002_Tarea1.Energy_Leaf;
 import cc3002_Tarea1.Frozen_City;
+import cc3002_Tarea1.IPokemon;
 import cc3002_Tarea1.Judge;
 import cc3002_Tarea1.Ledger;
-import cc3002_Tarea1.Pokemon_Leaf;
 import cc3002_Tarea1.Stadium;
 import cc3002_Tarea1.Trainer;
 
 public class Stadium_Test {
 	private Trainer t1, t2;
-	private Pokemon_Leaf p1, p2;
+	private IPokemon p1, p2;
 	private Energy_Leaf e;
 	private Judge Monitor;
 	private Ledger l = new Ledger();
@@ -26,8 +27,8 @@ public class Stadium_Test {
 	
 	@Before
 	public void setUp() throws Exception {
-		p1 = new Pokemon_Leaf(0, "",100, a);
-		p2 = new Pokemon_Leaf(1, "",100, a);
+		p1 = new BasicLeafPokemon(0, "",100, a);
+		p2 = new BasicLeafPokemon(1, "",100, a);
 		e = new Energy_Leaf("");
 		t1 = new Trainer(p1, S, e, p2);
 		t2 = new Trainer();

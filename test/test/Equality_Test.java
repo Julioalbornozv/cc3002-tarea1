@@ -16,12 +16,12 @@ import cc3002_Tarea1.Energy_Thunder;
 import cc3002_Tarea1.Energy_Water;
 import cc3002_Tarea1.Ledger;
 import cc3002_Tarea1.IPokemon;
-import cc3002_Tarea1.Pokemon_Fight;
-import cc3002_Tarea1.Pokemon_Fire;
-import cc3002_Tarea1.Pokemon_Leaf;
-import cc3002_Tarea1.Pokemon_Psi;
-import cc3002_Tarea1.Pokemon_Thunder;
-import cc3002_Tarea1.Pokemon_Water;
+import cc3002_Tarea1.BasicFightPokemon;
+import cc3002_Tarea1.BasicFirePokemon;
+import cc3002_Tarea1.BasicLeafPokemon;
+import cc3002_Tarea1.BasicPsiPokemon;
+import cc3002_Tarea1.BasicThunderPokemon;
+import cc3002_Tarea1.BasicWaterPokemon;
 
 public class Equality_Test {
 	private IEnergy e1, e2, e3, e4, e5, e6, e7, e8;
@@ -53,16 +53,16 @@ public class Equality_Test {
 		a5 = new Attack("Standard", "", 100, e6, e4, e1, e5);
 		a6 = new Attack("Standard", "" ,100, e5, e1, e6, e8);
 		//-------------------------------------
-		p1 = new Pokemon_Leaf(0,"generic",100,a1,a2,a3,a4);
-		p2 = new Pokemon_Leaf(1,"generic",30,a1,a2);
-		p3 = new Pokemon_Leaf(0,"genericX",100,a1,a2);
-		p4 = new Pokemon_Leaf(0,"generic",100,a1,a2,a3,a4,a5,a6);
-		p5 = new Pokemon_Fire(0,"generic",100,a1,a2,a3,a4);
-		p6 = new Pokemon_Water(0,"generic",100,a1,a2,a3,a4);
-		p7 = new Pokemon_Psi(0,"generic",100,a1,a2,a3,a4);
-		p8 = new Pokemon_Thunder(0,"generic",100,a1,a2,a3,a4);
-		p9 = new Pokemon_Fight(0,"generic",100,a1,a2,a3,a4);
-		p10 = new Pokemon_Fire(0,"generic",100,a1,a2,a3,a4);
+		p1 = new BasicLeafPokemon(0,"generic",100,a1,a2,a3,a4);
+		p2 = new BasicLeafPokemon(1,"generic",30,a1,a2);
+		p3 = new BasicLeafPokemon(0,"genericX",100,a1,a2);
+		p4 = new BasicLeafPokemon(0,"generic",100,a1,a2,a3,a4,a5,a6);
+		p5 = new BasicFirePokemon(0,"generic",100,a1,a2,a3,a4);
+		p6 = new BasicWaterPokemon(0,"generic",100,a1,a2,a3,a4);
+		p7 = new BasicPsiPokemon(0,"generic",100,a1,a2,a3,a4);
+		p8 = new BasicThunderPokemon(0,"generic",100,a1,a2,a3,a4);
+		p9 = new BasicFightPokemon(0,"generic",100,a1,a2,a3,a4);
+		p10 = new BasicFirePokemon(0,"generic",100,a1,a2,a3,a4);
 				
 		}
 

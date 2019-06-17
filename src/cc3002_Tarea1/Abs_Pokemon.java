@@ -17,7 +17,7 @@ public abstract class Abs_Pokemon implements IPokemon{
 	private String name;
 	private Item modifier = null;
 	private List<IAbility> skillset = new LinkedList<>();
-	private Ledger power = new Ledger();
+	protected Ledger power = new Ledger();
 	
 	/**
 	 * Creates a generic Pokemon, starting with no energy cards
@@ -52,7 +52,9 @@ public abstract class Abs_Pokemon implements IPokemon{
 	@Override
 	public int getID() {
 		return id;
-		}	
+		}
+	
+	
 	@Override
 	public List<IAbility> getSkillset(){
 		return skillset;
@@ -69,7 +71,7 @@ public abstract class Abs_Pokemon implements IPokemon{
 	 * @param att Attack to be used
 	 * @param enemy Enemy pokemon to be attacked
 	 */
-	protected void fight (Attack skill, IPokemon enemy) {}
+	protected abstract void fight (Attack skill, IPokemon enemy);
 	
 	@Override
 	public void beingPlayedBy(ITrainer player){
@@ -153,9 +155,7 @@ public abstract class Abs_Pokemon implements IPokemon{
 		}
 
 	@Override 
-	public void accept(Visitor m){ 
-		//TODO make each stage pokemon to implement this method
-		}
+	public abstract void accept(Visitor m);
 	/**
 	 * Checks if this card represents the same pokemon as another
 	 * 	

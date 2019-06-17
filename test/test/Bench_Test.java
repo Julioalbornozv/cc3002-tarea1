@@ -6,13 +6,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cc3002_Tarea1.Attack;
+import cc3002_Tarea1.BasicFightPokemon;
+import cc3002_Tarea1.IPokemon;
 import cc3002_Tarea1.Judge;
 import cc3002_Tarea1.Ledger;
-import cc3002_Tarea1.Pokemon_Fight;
 import cc3002_Tarea1.Trainer;
 
 public class Bench_Test {
-	private Pokemon_Fight p1,p2,p3,p4,p5,p6,p7,p8,p9;
+	private IPokemon p1,p2,p3,p4,p5,p6,p7,p8,p9;
 	private Trainer t1, t2;
 	private Judge Monitor;
 	private Attack nuke;
@@ -22,15 +23,15 @@ public class Bench_Test {
 		Ledger dud = new Ledger();
 		nuke = new Attack("Nuke","", 10000, dud);
 
-		p1 = new Pokemon_Fight(0,"",100, nuke);
-		p2 = new Pokemon_Fight(0,"",100);
-		p3 = new Pokemon_Fight(0,"",100);
-		p4 = new Pokemon_Fight(0,"",100);
-		p5 = new Pokemon_Fight(0,"",100);
-		p6 = new Pokemon_Fight(0,"",100);
-		p7 = new Pokemon_Fight(0,"",100);
-		p8 = new Pokemon_Fight(0,"",100);
-		p9 = new Pokemon_Fight(0,"",100);
+		p1 = new BasicFightPokemon(0,"",100, nuke);
+		p2 = new BasicFightPokemon(0,"",100);
+		p3 = new BasicFightPokemon(0,"",100);
+		p4 = new BasicFightPokemon(0,"",100);
+		p5 = new BasicFightPokemon(0,"",100);
+		p6 = new BasicFightPokemon(0,"",100);
+		p7 = new BasicFightPokemon(0,"",100);
+		p8 = new BasicFightPokemon(0,"",100);
+		p9 = new BasicFightPokemon(0,"",100);
 		
 		t1 = new Trainer(p1);
 		t2 = new Trainer(p2);

@@ -1,10 +1,11 @@
 package test;
 import static org.junit.Assert.*;
-import cc3002_Tarea1.Pokemon_Leaf;
 import cc3002_Tarea1.Trainer;
 import cc3002_Tarea1.Attack;
+import cc3002_Tarea1.BasicLeafPokemon;
 import cc3002_Tarea1.Ledger;
 import cc3002_Tarea1.Energy_Leaf;
+import cc3002_Tarea1.IPokemon;
 import cc3002_Tarea1.Judge;
 import cc3002_Tarea1.Energy_Fire;
 
@@ -13,7 +14,7 @@ import org.junit.Test;
 
 public class Cost_Evaluation_Test {
 	private Trainer t1, t2;
-	private Pokemon_Leaf p1, p2;
+	private IPokemon p1, p2;
 	private Attack a1,a2,a3;
 	private Judge Monitor;
 	private Energy_Leaf e1 = new Energy_Leaf("");
@@ -34,8 +35,8 @@ public class Cost_Evaluation_Test {
 		a2 = new Attack("2W","", 2, l2);
 		a3 = new Attack("1W-1E","", 2, l3);
 		
-		p1 = new Pokemon_Leaf(0,"",100,a1,a2,a3);
-		p2 = new Pokemon_Leaf(1,"",100,a1,a2,a3);
+		p1 = new BasicLeafPokemon(0,"",100,a1,a2,a3);
+		p2 = new BasicLeafPokemon(1,"",100,a1,a2,a3);
 		
 		t1 = new Trainer(p1);
 		t2 = new Trainer(p2);

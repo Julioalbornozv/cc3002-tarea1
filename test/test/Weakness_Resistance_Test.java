@@ -9,12 +9,12 @@ import cc3002_Tarea1.Attack;
 import cc3002_Tarea1.Ledger;
 import cc3002_Tarea1.IPokemon;
 import cc3002_Tarea1.Judge;
-import cc3002_Tarea1.Pokemon_Fight;
-import cc3002_Tarea1.Pokemon_Fire;
-import cc3002_Tarea1.Pokemon_Leaf;
-import cc3002_Tarea1.Pokemon_Psi;
-import cc3002_Tarea1.Pokemon_Thunder;
-import cc3002_Tarea1.Pokemon_Water;
+import cc3002_Tarea1.BasicFightPokemon;
+import cc3002_Tarea1.BasicFirePokemon;
+import cc3002_Tarea1.BasicLeafPokemon;
+import cc3002_Tarea1.BasicPsiPokemon;
+import cc3002_Tarea1.BasicThunderPokemon;
+import cc3002_Tarea1.BasicWaterPokemon;
 import cc3002_Tarea1.Trainer;
 
 public class Weakness_Resistance_Test {
@@ -28,13 +28,13 @@ public class Weakness_Resistance_Test {
 		Ledger dud = new Ledger();
 		standard = new Attack("Standard","", 4, dud);
 		
-		pL = new Pokemon_Leaf(0,"",100,standard);
-		pW = new Pokemon_Water(0,"",100,standard);
-		pF = new Pokemon_Fire(0,"",100,standard);
-		pP = new Pokemon_Psi(0,"",100,standard);
-		pFg = new Pokemon_Fight(0,"",100,standard);
-		pT = new Pokemon_Thunder(0,"",100,standard);
-		pP2 = new Pokemon_Psi(0,"",100,standard);
+		pL = new BasicLeafPokemon(0,"",100,standard);
+		pW = new BasicWaterPokemon(0,"",100,standard);
+		pF = new BasicFirePokemon(0,"",100,standard);
+		pP = new BasicPsiPokemon(0,"",100,standard);
+		pFg = new BasicFightPokemon(0,"",100,standard);
+		pT = new BasicThunderPokemon(0,"",100,standard);
+		pP2 = new BasicPsiPokemon(0,"",100,standard);
 		
 		}
 

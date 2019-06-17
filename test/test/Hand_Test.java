@@ -6,13 +6,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cc3002_Tarea1.Attack;
+import cc3002_Tarea1.BasicFirePokemon;
+import cc3002_Tarea1.BasicLeafPokemon;
+import cc3002_Tarea1.BasicWaterPokemon;
 import cc3002_Tarea1.IEnergy;
 import cc3002_Tarea1.Energy_Leaf;
 import cc3002_Tarea1.IPokemon;
 import cc3002_Tarea1.Judge;
-import cc3002_Tarea1.Pokemon_Fire;
-import cc3002_Tarea1.Pokemon_Leaf;
-import cc3002_Tarea1.Pokemon_Water;
 import cc3002_Tarea1.Trainer;
 
 public class Hand_Test {
@@ -26,9 +26,9 @@ public class Hand_Test {
 	public void setUp() throws Exception {
 		dud = new Attack("Standard","", 40);
 		
-		p1 = new Pokemon_Leaf(0,"",100,dud);
-		p2 = new Pokemon_Water(0,"",100,dud);
-		p3 = new Pokemon_Fire(0,"",100,dud);
+		p1 = new BasicLeafPokemon(0,"",100,dud);
+		p2 = new BasicWaterPokemon(0,"",100,dud);
+		p3 = new BasicFirePokemon(0,"",100,dud);
 		
 		e1 = new Energy_Leaf("");
 		t1 = new Trainer(p1, p2, e1, p3);
