@@ -3,7 +3,7 @@ package cc3002_Tarea1;
 public class Item implements ITrainerCard{
 	private String name;
 	private String description;
-	private Effect eff;
+	protected Effect eff;
 	
 	public Item(Effect e) {
 		this.eff = e;
@@ -21,7 +21,7 @@ public class Item implements ITrainerCard{
 
 	@Override
 	public void beingPlayedBy(ITrainer player) {
-		player.getObs().instant_effect(this.eff); //TODO: Separate between Equipable items and instantaneous Items
+		player.getObs().instant_effect(this.eff);
 		player.discard(this);
 		}
 	

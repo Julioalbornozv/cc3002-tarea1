@@ -1,8 +1,12 @@
 package cc3002_Tarea1;
 
 public abstract class Effect implements Visitor{
+	private int turn_limit = 0;
 
 	public Effect() {}
+	public Effect(int limit) {
+		this.turn_limit = 0;
+		}
 	public abstract void execute(Judge m);
 	public abstract void executeOver(Judge m, ICard card);
 	

@@ -8,4 +8,5 @@ public interface IObserver {
 	void notifyAttack(Attack attack);
 	void notifySkip();
 	int notifyEnergy();
+	void dormant_effect(Effect eff);
 	}

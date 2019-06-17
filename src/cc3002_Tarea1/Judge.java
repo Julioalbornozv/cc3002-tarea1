@@ -1,5 +1,7 @@
 package cc3002_Tarea1;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Judge implements IObserver {
@@ -8,6 +10,7 @@ public class Judge implements IObserver {
 	private Random coin = new Random();
 	private boolean energy_limit = false;
 	private int last_coin = 0;
+	private List<Effect> passive = new ArrayList<Effect>();
 	private Stadium stadium = new Stadium(new Null_Effect()); // NULL object
 	
 	public Judge(Abs_Trainer player_1) { // Solo play (For testing purposes
@@ -33,6 +36,12 @@ public class Judge implements IObserver {
 	public void instant_effect(Effect effect) {
 		effect.execute(this);
 		}
+	
+	@Override
+	public void dormant_effect(Effect effect) {
+		passive.add(effect);
+		}
+	
 	public int coinflip(){
 		last_coin = coin.nextInt(2);
 		return last_coin;	//0 cara, 1 sello
@@ -41,6 +50,9 @@ public class Judge implements IObserver {
 	@Override
 	public void notifyCard(ICard card) {
 		stadium.getEffect().executeOver(this, card);
+		for (Effect e : passive) {
+			e.executeOver(this,card);
+			}
 		card.beingPlayedBy(current);
 		}
 	
