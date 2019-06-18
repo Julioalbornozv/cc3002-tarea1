@@ -54,5 +54,10 @@ public class Ability_Test {
 		else {
 			assertEquals(80,p1.getHP());
 			}
+		
+		int hp = p1.getHP();
+		t1.select(a);
+		
+		assertEquals(hp-20,p1.getHP())	; // Heal cannot be used twice
 		}
 	}

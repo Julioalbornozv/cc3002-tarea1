@@ -11,6 +11,7 @@ public class Judge implements IObserver {
 	private boolean energy_limit = false;
 	private int last_coin = 0;
 	private List<Effect> passive = new ArrayList<Effect>();
+	private List<Effect> turn_limited = new ArrayList<Effect>();
 	private Stadium stadium = new Stadium(new Null_Effect()); // NULL object
 	
 	public Judge(Abs_Trainer player_1) { // Solo play (For testing purposes
@@ -58,7 +59,17 @@ public class Judge implements IObserver {
 	
 	@Override
 	public void notifySelection(IAbility skill) {
-		skill.getEffect().execute(this);
+		Effect e = skill.getEffect();
+		if (e.getLimit()) { // Restricted usage
+			if (!turn_limited.contains(e)) { //First usage
+				turn_limited.add(e);
+				e.execute(this);
+				}
+			}
+		else { // Free usage
+			e.execute(this);
+			}
+	
 		}
 	
 	public void notifyAttack(Attack att) {
@@ -67,6 +78,7 @@ public class Judge implements IObserver {
 		if(adversary.checkActive() == 0) {
 			reward(current);
 			}
+		turn_limited.clear(); //Clear all restrictions
 		swap();
 		energy_limit = false;
 		turnStart();
