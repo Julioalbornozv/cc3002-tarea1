@@ -155,6 +155,11 @@ public abstract class Abs_Trainer implements ITrainer, ISubject{
 			this.cemetery.add(target);
 			}
 		}
+	
+	/**
+	 * Prize card getter
+	 * @return prize pool
+	 */
 
 	public Queue<ICard> getPrize() {
 		return prize;

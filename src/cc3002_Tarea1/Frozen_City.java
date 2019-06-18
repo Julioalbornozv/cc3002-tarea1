@@ -1,8 +1,13 @@
 package cc3002_Tarea1;
 
+/**
+ * Frozen City Stadium implementation
+ * @author Julio Albornoz Valencia
+ *
+ */
 public class Frozen_City extends Effect {
 	private Judge monitor;
-	private int multiplier = 3; // Number of counters to be disarded
+	private int multiplier = 3; // Number of counters to be dicsarded
 	
 	@Override
 	public void execute(Judge m) {}
@@ -19,9 +24,13 @@ public class Frozen_City extends Effect {
 		pk.normalDmg(multiplier);
 		}
 	
+	/**
+	 * Getter for multiplier of this effect
+	 * @return
+	 */
+	
 	public int getMult() {
 		return multiplier;	
 		}
-
 	
 	}

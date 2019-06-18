@@ -1,4 +1,8 @@
 package cc3002_Tarea1;
+/**
+ * Electric Shock attack implememtation
+ * @author Julio Albornoz Valencia
+ */
 
 public class Electric_Shock extends Effect {
 	private int multiplier = 3;
@@ -14,6 +18,10 @@ public class Electric_Shock extends Effect {
 	@Override
 	public void executeOver(Judge m, ICard card) {}
 	
+	/**
+	 * Getter for multiplier of this effect
+	 * @return
+	 */
 	public int getMultiplier() {
 		return multiplier;
 		}

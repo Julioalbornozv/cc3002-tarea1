@@ -19,5 +19,9 @@ public interface ICard {
 	 */
 	public void beingPlayedBy(ITrainer player);
 
+	/**
+	 * Used to disambiguate the card type to the effect being currently applied
+	 * @param Effect being executed
+	 */
 	public void accept(Visitor modifier);
 	}

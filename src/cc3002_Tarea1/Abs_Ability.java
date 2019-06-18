@@ -27,6 +27,14 @@ public abstract class Abs_Ability implements IAbility {
 		this.cost = cost;
 		}
 	
+	/**
+	 * Creates a new ability with an effect (based on an existing Ledger)
+	 * 
+	 * @param name Ability name
+	 * @param desc Ability description
+	 * @param eff Ability effect
+	 * @param cost Ability cost (as Ledger Object)
+	 */
 	protected Abs_Ability(String name, String desc, Effect eff, Ledger cost) {
 		this(name,desc,cost);
 		this.effect = eff;
@@ -43,7 +51,14 @@ public abstract class Abs_Ability implements IAbility {
 		this.description = desc;
 		this.cost = new Ledger(cards);
 		}
-	
+	/**
+	 * Creates a new ability with a given effect
+	 * 
+	 * @param name Ability name
+	 * @param desc Ability description
+	 * @param eff Ability effect
+	 * @param cost Ability cost (as Ledger Object)
+	 */
 	protected Abs_Ability(String name, String desc, Effect eff, IEnergy ... cards) {
 		this(name,desc,cards);
 		this.effect = eff;

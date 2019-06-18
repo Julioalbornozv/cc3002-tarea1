@@ -1,5 +1,10 @@
 package cc3002_Tarea1;
 
+/**
+ * Heal ability implementation
+ * @author Julio Albornoz Valencia
+ *
+ */
 public class Heal extends Effect{
 
 	@Override

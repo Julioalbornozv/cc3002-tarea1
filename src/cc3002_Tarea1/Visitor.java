@@ -1,7 +1,11 @@
 package cc3002_Tarea1;
 
 public interface Visitor {
-	/* Visitor interface*/
+	/**
+	 * Visitor methods, react depending on the card being used, implementation varies between
+	 * cards
+	 */
+	
 	public void visitEnergy(IEnergy e);
 	public void visitBasicPokemon();
 	public void visitS1_Pokemon();

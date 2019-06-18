@@ -2,6 +2,11 @@ package cc3002_Tarea1;
 
 public abstract class Abs_Energy implements IEnergy{
 	private String name;
+	
+	/**
+	 * Energy constructor
+	 * @param name Energy name
+	 */
 	public Abs_Energy(String name) {
 		this.name = name;
 		}
