@@ -1,6 +1,6 @@
 package cc3002_Tarea1;
 
-public class Stage2_Thunder_Pokemon extends Abs_ThunderPokemon implements IBasicPokemon{
+public class Stage2_Thunder_Pokemon extends Abs_ThunderPokemon {
 	private int prevol;
 	
 	public Stage2_Thunder_Pokemon(int id, String name, int hp, int pre, IAbility ... skills) {

@@ -1,6 +1,6 @@
 package cc3002_Tarea1;
 
-public class BasicFirePokemon extends Abs_FirePokemon implements IBasicPokemon{
+public class BasicFirePokemon extends Abs_FirePokemon {
 	
 	public BasicFirePokemon(int id,String name, int hp, IAbility ... skills) {
 		super(id,name,hp,skills);

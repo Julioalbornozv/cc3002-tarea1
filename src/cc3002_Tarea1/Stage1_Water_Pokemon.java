@@ -1,6 +1,6 @@
 package cc3002_Tarea1;
 
-public class Stage1_Water_Pokemon extends Abs_WaterPokemon implements IStage1Pokemon{
+public class Stage1_Water_Pokemon extends Abs_WaterPokemon {
 	private int prevol;
 	
 	public Stage1_Water_Pokemon(int id, String name, int hp, int pre, IAbility ... skills) {

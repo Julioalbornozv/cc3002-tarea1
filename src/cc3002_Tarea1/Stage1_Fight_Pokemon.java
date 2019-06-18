@@ -1,6 +1,6 @@
 package cc3002_Tarea1;
 
-public class Stage1_Fight_Pokemon extends Abs_FightPokemon implements IStage1Pokemon{
+public class Stage1_Fight_Pokemon extends Abs_FightPokemon {
 	private int prevol;
 	
 	public Stage1_Fight_Pokemon(int id, String name, int hp, int pre, IAbility ... skills) {

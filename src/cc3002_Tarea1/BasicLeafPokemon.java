@@ -1,6 +1,6 @@
 package cc3002_Tarea1;
 
-public class BasicLeafPokemon extends Abs_LeafPokemon implements IBasicPokemon{
+public class BasicLeafPokemon extends Abs_LeafPokemon{
 	
 	public BasicLeafPokemon(int id,String name, int hp, IAbility ... skills) {
 		super(id,name,hp,skills);

@@ -1,6 +1,6 @@
 package cc3002_Tarea1;
 
-public class BasicThunderPokemon extends Abs_ThunderPokemon implements IBasicPokemon{
+public class BasicThunderPokemon extends Abs_ThunderPokemon {
 	
 	public BasicThunderPokemon(int id,String name, int hp, IAbility ... skills) {
 		super(id,name,hp,skills);

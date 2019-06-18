@@ -1,6 +1,6 @@
 package cc3002_Tarea1;
 
-public class BasicFightPokemon extends Abs_FightPokemon implements IBasicPokemon{
+public class BasicFightPokemon extends Abs_FightPokemon{
 	
 	public BasicFightPokemon(int id,String name, int hp, IAbility ... skills) {
 		super(id,name,hp,skills);
